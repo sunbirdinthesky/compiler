@@ -50,6 +50,8 @@
 计划项：   
 1.开始学习汇编语言，尝试编写汇编程序   
 2.研究小型编译器c4.c   
+报告：
+1.https://www.ibm.com/developerworks/cn/linux/l-assembly/index.html
    
 第六周：4/02 ~ 4/08 状态：计划中     
 计划项：   
