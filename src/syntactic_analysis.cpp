@@ -2,6 +2,7 @@
 #include <map>
 #include <vector>
 #include <set>
+#include <sstream>
 using namespace std;
 
 //语法分析状态机，状态图详见笔记
@@ -175,9 +176,9 @@ class symbol_list {
         }
 
         void add (string a, string b, string func_para_type) {
+          index[b] = op1.size();
           op1.push_back(a);
           op2.push_back(b);
-          index[b] = op1.size();
           this->func.push_back(func_para_type);
           if (a == "int")  n_shift += 4;
           if (a == "char") n_shift += 1;
@@ -215,7 +216,7 @@ class symbol_list {
       vector <string> res;
       domain *tmp = cur;
       while (tmp != NULL) {
-        res = tmp-> find(name);
+        res = tmp->find(name);
         if (res.size() == 0) 
           tmp = tmp->father;
         else 
@@ -229,7 +230,7 @@ class symbol_list {
         cur->add (a, b, func_para_type);
         return true;
       } else {
-        cout << "ERROR : Multi define of " << a << " " << b << " ";
+        cerr << "ERROR : Multi define of " << a << " " << b << " ";
         return false;
       }
     }
@@ -304,10 +305,28 @@ class IR {
 
     void debug () {
       for (auto i = 0u; i < op1.size(); i++) {
-        cout << "[IR line " << i << "] : <" << op0[i] << "> <" << op1[i];
-        cout << "> <" << op2[i] << "> <" << op3[i] << ">" << endl;
+        cerr << "[IR line " << i << "] : <" << op0[i] << "> <" << op1[i];
+        cerr << "> <" << op2[i] << "> <" << op3[i] << ">" << endl;
       }
     }
+
+    void output () {
+      for (auto i = 0u; i < op1.size(); i++) {
+        if (op0[i] == "") cout << "-";
+        else cout << op0[i];
+        cout << " ";
+        if (op1[i] == "") cout << "-";
+        else cout << op1[i];
+        cout << " ";
+        if (op2[i] == "") cout << "-";
+        else cout << op2[i];
+        cout << " ";
+        if (op3[i] == "") cout << "-";
+        else cout << op3[i];
+        cout << endl;
+      }
+    }
+
   private:
     vector <string> op0, op1, op2, op3;
 } ir;
@@ -317,14 +336,14 @@ void reduce (vector <info> &info_list, stage_machine &dfa) {
   for (int n_elm = 1; n_elm < len; n_elm ++) {
     for (int loop = n_elm-1; loop >= 0; loop--) {
       dfa.reset();
-      cout << "[info] : total, loaded, ptr : " << len << " " << n_elm << " " << loop << endl;
-      cout << "[info] : str processing: ";
+      cerr << "[info] : total, loaded, ptr : " << len << " " << n_elm << " " << loop << endl;
+      cerr << "[info] : str processing: ";
       for (int idx = loop; idx <= n_elm; idx++) {
-        cout << "<" << info_list[idx].get_type() << ">  ";
+        cerr << "<" << info_list[idx].get_type() << ">  ";
         dfa.match(info_list[idx].get_type());
       }
-      cout << endl;
-      cout << "[info] : stage of dfa : " << dfa.get_type() << endl << endl;
+      cerr << endl;
+      cerr << "[info] : stage of dfa : " << dfa.get_type() << endl << endl;
       string type = dfa.get_type();
 
       if (type != "INVALID" && type != "NOT DEFINE") {
@@ -449,7 +468,7 @@ void reduce (vector <info> &info_list, stage_machine &dfa) {
           val = info_list[loop+2].get_type();
           if (val == "id") {
             tmp.add_val("var");
-            tmp.add_val("unknow");
+            tmp.add_val("id");
             tmp.add_val(info_list[loop+2].get_val(1));
           }
           if (val == "num") {
@@ -511,7 +530,7 @@ bool generate_ir (symbol_list &table, vector <info> &info_list) {
   if (data.get_type() == "func") {
     string ret_type  = data.get_val();
     string func_name = data.get_val();
-    string para;
+    string para      = "func";
     vector <string> var_type;
     vector <string> var_name;
     while (true) {
@@ -520,10 +539,7 @@ bool generate_ir (symbol_list &table, vector <info> &info_list) {
         break;
       var_type.push_back(val0);
       var_name.push_back(data.get_val());
-      if (para.size() == 0) 
-        para = val0;
-      else
-        para = para + " " + val0;
+      para = para + " " + val0;
     }
 
     if (!table.add(ret_type, func_name, para))
@@ -535,6 +551,7 @@ bool generate_ir (symbol_list &table, vector <info> &info_list) {
       if (var_type[i] == "int") {
         table.add(var_type[i], var_name[i], "");
         var_info = table.find(var_name[i]);
+        ir.add("init", "4", "", var_info[2]); 
         switch (i) {
           case 0:
             ir.add("movl", "eax", "", var_info[2]);
@@ -553,6 +570,7 @@ bool generate_ir (symbol_list &table, vector <info> &info_list) {
       if (var_type[i] == "char") {
         table.add(var_type[i], var_name[i], "");
         var_info = table.find(var_name[i]);
+        ir.add("init", "1", "", var_info[2]); 
         switch (i) {
           case 0:
             ir.add("movb", "al", "", var_info[2]);
@@ -568,6 +586,142 @@ bool generate_ir (symbol_list &table, vector <info> &info_list) {
             break;
         }
       }
+    }
+  }
+
+  if (data.get_type() == "call_func") {
+    var_info = table.find(data.get_val(1));
+    string ret_type  = var_info[0];
+    string func_name = var_info[1];
+    vector <string> para_type;
+   
+    if (var_info[3] == "") {
+      cerr << "ERROR : "  << func_name << " is not a func, error ";
+      return false;
+    }
+
+    string tmp;
+    istringstream iss(var_info[3]);
+    iss >> tmp;
+    while (!iss.eof()) {
+      iss >> tmp;
+      para_type.push_back(tmp);
+    }
+
+    data.get_val();
+    data.get_val();
+
+    unsigned int  n_para = 0;
+    while (true) {
+      if (data.get_val() == "")
+        break;
+      n_para++;
+      if (n_para > para_type.size()) {
+        cerr << "ERROR : too many parameters for function " << func_name << ", error "; 
+        return false;
+      }
+      string name = data.get_val();
+      var_info    = table.find(name);
+      
+      // checking
+      if (var_info.size() == 0) {
+        cerr << "ERROR : variable " << name << " not found, error ";
+        return false;
+      }
+      if (var_info[3].size() != 0) {
+        cerr << "ERROR : " << name << " is a function, not variable, error ";
+        return false;
+      }
+
+      // adding IR
+      if (var_info[0] == "int") {
+        switch (n_para) {
+          case 1:
+            ir.add("movl", var_info[2], "", "eax");
+            break;
+          case 2:
+            ir.add("movl", var_info[2], "", "ebx");
+            break;
+          case 3:
+            ir.add("movl", var_info[2], "", "ecx");
+            break;
+          case 4:
+            ir.add("movl", var_info[2], "", "edx");
+            break;
+        }
+      } 
+      if (var_info[0] == "char") {
+        switch (n_para) {
+          case 1:
+            ir.add("movzbl", var_info[2], "", "eax");
+            break;
+          case 2:
+            ir.add("movzbl", var_info[2], "", "ebx");
+            break;
+          case 3:
+            ir.add("movzbl", var_info[2], "", "ecx");
+            break;
+          case 4:
+            ir.add("movzbl", var_info[2], "", "edx");
+            break;
+        }
+      } 
+    }
+    if (n_para < para_type.size()) {
+      cerr << "ERROR : too less parameters for function " << func_name << ", error "; 
+      return false;
+    }
+  }
+
+  if (data.get_type() == "ass") {
+    string sub_type = data.get_val();
+    if (sub_type == "var") {
+      //pre check
+      sub_type = data.get_val();
+      if (sub_type == "id") {
+        string name = data.get_val(2);
+        var_info    = table.find(name);
+        //checking 
+        if (var_info.size() == 0) {
+          cerr << "ERROR : variable " << name << " not found, error ";
+          return false;
+        }
+        if (var_info[3].size() != 0) {
+          cerr << "ERROR : " << name << " is a function, not variable, error ";
+          return false;
+        }
+        if (var_info[0] == "int")  ir.add("movl",   var_info[2], "", "eax");
+        if (var_info[0] == "char") ir.add("movzbl", var_info[2], "", "eax");
+      }
+      if (sub_type == "str") {
+        //sorry, i can`t finish it yet
+      }
+      if (sub_type == "num") {
+        ir.add("movl", "$" + data.get_val(2), "", "eax");
+      }
+
+      //start assigning
+      string name = data.get_val(4);
+      var_info = table.find(name);
+
+      //checking 
+      if (var_info.size() == 0) {
+        cerr << "ERROR : variable " << name << " not found, error ";
+        return false;
+      }
+      if (var_info[3].size() != 0) {
+        cerr << "ERROR : " << name << " is a function, not variable, error ";
+        return false;
+      }
+      // assign
+      if (var_info[0] == "int")  ir.add("movl", "eax", "", var_info[2]);
+      if (var_info[0] == "char") ir.add("movb", "al",  "", var_info[2]);
+    }
+    if (sub_type == "oper") {
+      //just assine
+    }
+    if (sub_type == "call_func") {
+      //copy of call_func
     }
   }
 
@@ -597,7 +751,7 @@ int main () {
     }
     cin >> buff2;
 
-    cout << "[info] : input " << buff1 << " " << buff2 << endl;
+    cerr << "[info] : input " << buff1 << " " << buff2 << endl;
 
     if (buff2 == "{") {
       if (info_list.size() == 0) {
@@ -606,11 +760,11 @@ int main () {
       }
       reduce (info_list, dfa);
       if (info_list.size() != 1 || trim_expr.find(info_list[0].get_type()) == trim_expr.end()){
-        cout << "ERROR #1 : expression error at line " << n_line << endl;
+        cerr << "ERROR #1 : expression error at line " << n_line << endl;
         return 1;
       }
-      if (generate_ir(table, info_list)) {
-        cout << "at line " << n_line << endl;
+      if (!generate_ir(table, info_list)) {
+        cerr << "at line " << n_line << endl;
         return 1;
       }
       continue;
@@ -618,11 +772,11 @@ int main () {
 
     if (buff2 == "}") {
       if (info_list.size() != 0) {
-        cout << "ERROR #2 : need ; at line " << n_line << endl;
+        cerr << "ERROR #2 : need ; at line " << n_line << endl;
         return 1;
       }
       if (!table.last_level()) {
-        cout << "ERROR #2 : need '{' for character '}' at line " << n_line << endl;
+        cerr << "ERROR #2 : need '{' for character '}' at line " << n_line << endl;
         return 1;
       }
       continue;
@@ -634,15 +788,24 @@ int main () {
     if (buff2 == ";") {
       reduce (info_list, dfa);
       if (info_list.size() != 1 || trim_expr.find(info_list[0].get_type()) == trim_expr.end()){
-        cout << "ERROR #3 : expression error at line " << n_line << endl;
+        cerr << "ERROR #3 : expression error at line " << n_line << endl;
         return 1;
       }
-      if (generate_ir(table, info_list)) {
-        cout << "at line " << n_line << endl;
+      if (!generate_ir(table, info_list)) {
+        cerr << "at line " << n_line << endl;
         return 1;
       }
     }
   }
+
+  if (table.last_level()) {
+    cerr << "ERROR #2: expect } at line " << n_line << endl;
+  }
+  if (table.find("main").size() == 0) {
+    cerr << "ERROR #4: cat find main function" << endl;
+    return 1;
+  }
+  ir.output();  
   
   return 0;
 }

@@ -3,5 +3,9 @@ int add ( int a, int b) {
 }
 
 int main () {
-  int a = 0;
+  int a;
+  a = 0;
+  char b;
+  b = 0;
+  add ( a, b );
 }

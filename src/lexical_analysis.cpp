@@ -43,7 +43,7 @@ class state_machine {
       pool[cur_node] = "key";
 
       insert("char");
-      pool[cur_node] = "char";
+      pool[cur_node] = "key";
 
       insert("=");
       pool[cur_node] = "op";
