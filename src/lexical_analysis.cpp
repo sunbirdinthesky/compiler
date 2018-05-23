@@ -46,37 +46,37 @@ class state_machine {
       pool[cur_node] = "char";
 
       insert("=");
-      pool[cur_node] = "ops";
+      pool[cur_node] = "op";
 
       insert("+");
-      pool[cur_node] = "ops";
+      pool[cur_node] = "op";
 
       insert("-");
-      pool[cur_node] = "ops";
+      pool[cur_node] = "op";
 
       insert("*");
-      pool[cur_node] = "ops";
+      pool[cur_node] = "op";
 
       insert("/");
-      pool[cur_node] = "ops";
+      pool[cur_node] = "op";
 
       insert("{");
-      pool[cur_node] = "ops";
+      pool[cur_node] = "op";
 
       insert("}");
-      pool[cur_node] = "ops";
+      pool[cur_node] = "op";
 
       insert("(");
-      pool[cur_node] = "ops";
+      pool[cur_node] = "op";
 
       insert(")");
-      pool[cur_node] = "ops";
+      pool[cur_node] = "op";
 
       insert(",");
-      pool[cur_node] = "ops";
+      pool[cur_node] = "op";
 
       insert(";");
-      pool[cur_node] = "ops";
+      pool[cur_node] = "op";
 
       trims.insert("+");
       trims.insert("-");
@@ -149,6 +149,7 @@ class state_machine {
 int main (int argn, char** argv) {
   state_machine token_tree;
   ifstream fin;
+  int n_line = 0;
   if (argn != 2) {
     cout << "Usage: " << argv[0] << " source file" << endl;
     return 0;
@@ -158,6 +159,7 @@ int main (int argn, char** argv) {
   while (!fin.eof()) {
     string str;
     getline(fin, str);
+    cout << "line " << ++n_line << endl;
     str += ' ';
     for (char val : str) {
       string token = token_tree.check(val);
