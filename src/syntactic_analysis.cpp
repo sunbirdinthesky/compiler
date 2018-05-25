@@ -41,6 +41,10 @@ class stage_machine{
       node *s60 = new node();
       node *s61 = new node();
       node *s62 = new node("ids");
+      
+      node *s70 = new node();
+      node *s71 = new node();
+      node *s72 = new node("ret");
 
       // paras  init  func
       root -> add("paras", s11);
@@ -69,6 +73,7 @@ class stage_machine{
       s511 -> add("id", s512); 
       s511 -> add("num", s512); 
       s511 -> add("str", s512); 
+      s511 -> add("character", s512); 
       s511 -> add("oper", s513); 
       s512 -> add("op ;", s513); 
       s511 -> add("call_func", s513); //ass 
@@ -78,12 +83,21 @@ class stage_machine{
       s51  -> add("op *", s514); 
       s51  -> add("op /", s514); 
       s514 -> add("id", s515); 
+      s514 -> add("num", s515); 
       s515 -> add("op ;", s516); //oper
 
       root -> add("ids",  s60);
       s51  -> add("op ,", s61);
       s60  -> add("op ,", s61);
       s61  -> add("id", s62); //ids
+
+
+      root -> add("cmd return", s70);
+      s70  -> add("id", s71);
+      s70  -> add("str", s71);
+      s70  -> add("num", s71);
+      s70  -> add("character", s71);
+      s71  -> add("op ;", s72);  //return id/num/char/str
     }
 
     void reset () {    //状态恢复到最初
@@ -261,10 +275,10 @@ class info { //用于存储规约前和规约后的节点信息，节点信息�
         val.push_back(str.substr(4));
         return;
       }
-      if (str.substr(0,4) == "char") {
-        type = "char";
-        val.push_back("char");
-        val.push_back(str.substr(5));
+      if (str.substr(0,9) == "character") {
+        type = "character";
+        val.push_back("character");
+        val.push_back(str.substr(11,1));
         return;
       }
       type = str;
@@ -296,6 +310,9 @@ class info { //用于存储规约前和规约后的节点信息，节点信息�
 
 class IR {
   public:
+    IR () {
+    }
+
     void add (string a, string b, string c, string d) {
       op0.push_back(a);
       op1.push_back(b);
@@ -462,6 +479,32 @@ void reduce (vector <info> &info_list, stage_machine &dfa) {
           info_list[loop] = tmp;
         }
 
+        if (type == "ret") { 
+          info tmp("ret");
+
+          //first elm
+          val = info_list[loop+1].get_type();
+          if (val == "id") {
+            tmp.add_val("unknow");
+            tmp.add_val(info_list[loop+1].get_val(1));
+          }
+          if (val == "num") {
+            tmp.add_val("num");
+            tmp.add_val(info_list[loop+1].get_val(1));
+          }
+          if (val == "str") {
+            tmp.add_val("str");
+            tmp.add_val(info_list[loop+1].get_val(1));
+          }
+          if (val == "character") {
+            tmp.add_val("character");
+            tmp.add_val(info_list[loop+1].get_val(1));
+          }
+
+          info_list.erase(info_list.begin()+loop+1, info_list.begin()+n_elm+1);
+          info_list[loop] = tmp;
+        }
+
         if (type == "ass") { 
           info tmp("ass");
           //second elm
@@ -479,6 +522,11 @@ void reduce (vector <info> &info_list, stage_machine &dfa) {
           if (val == "str") {
             tmp.add_val("var");
             tmp.add_val("str");
+            tmp.add_val(info_list[loop+2].get_val(1));
+          }
+          if (val == "character") {
+            tmp.add_val("var");
+            tmp.add_val("character");
             tmp.add_val(info_list[loop+2].get_val(1));
           }
           if (val == "oper") {
@@ -515,6 +563,12 @@ void reduce (vector <info> &info_list, stage_machine &dfa) {
 bool generate_ir (symbol_list &table, vector <info> &info_list) {
   info data = info_list[0];
   vector <string> var_info;
+
+  auto res = data.get_val();
+  while (res != "") {
+    cerr << res << endl;
+    res = data.get_val();
+  }
 
   if (data.get_type() == "init") {
     if (!table.add(data.get_val(0), data.get_val(1), ""))
@@ -671,8 +725,10 @@ bool generate_ir (symbol_list &table, vector <info> &info_list) {
       cerr << "ERROR : too less parameters for function " << func_name << ", error "; 
       return false;
     }
+    ir.add("call", func_name, "", "");
   }
 
+  // ass 
   if (data.get_type() == "ass") {
     string sub_type = data.get_val();
     if (sub_type == "var") {
@@ -699,6 +755,12 @@ bool generate_ir (symbol_list &table, vector <info> &info_list) {
       if (sub_type == "num") {
         ir.add("movl", "$" + data.get_val(2), "", "eax");
       }
+      if (sub_type == "character") {
+        char tmp = data.get_val(2)[0];
+        int  ascii = int(tmp);
+        string code = to_string(ascii);
+        ir.add("movl", "$" + code, "", "eax");
+      }
 
       //start assigning
       string name = data.get_val(4);
@@ -717,11 +779,235 @@ bool generate_ir (symbol_list &table, vector <info> &info_list) {
       if (var_info[0] == "int")  ir.add("movl", "eax", "", var_info[2]);
       if (var_info[0] == "char") ir.add("movb", "al",  "", var_info[2]);
     }
+
+    // for a = a +-*/ b
     if (sub_type == "oper") {
-      //just assine
+      string name1 = data.get_val(2);
+      auto   info1 = table.find(name1);
+      //check var
+      if (info1.size() == 0) {
+        cerr << "ERROR : variable " << name1 << " not found, error ";
+        return false;
+      }
+      if (info1[3].size() != 0) {
+        cerr << "ERROR : " << name1 << " is a function, not variable, error ";
+        return false;
+      }
+
+      if (info1[0] == "int") 
+        ir.add("movl", info1[2], "", "eax");
+      if (info1[0] == "char") 
+        ir.add("movzbl", info1[2], "", "eax");
+
+      if (data.get_val(4) == "unknow") {
+        string name2 = data.get_val(5);
+        auto   info2 = table.find(name2);
+        //check var
+        if (info2.size() == 0) {
+          cerr << "ERROR : variable " << name2 << " not found, error ";
+          return false;
+        }
+        if (info2[3].size() != 0) {
+          cerr << "ERROR : " << name2 << " is a function, not variable, error ";
+          return false;
+        }
+
+        if (info2[0] == "int") 
+          ir.add("movl", info2[2], "", "ebx");
+        if (info2[0] == "char") 
+          ir.add("movzbl", info2[2], "", "ebx");
+      }
+      if (data.get_val(4) == "num") {
+        string num = data.get_val(5);
+        ir.add("movl", "$" + num, "", "ebx");
+      }
+      if (data.get_val(4)  == "character") {
+        char tmp = data.get_val(5)[0];
+        int  ascii = int(tmp);
+        string code = to_string(ascii);
+        ir.add("movl", "$" + code, "", "eax");
+      }
+
+      if (data.get_val(3) == "+") {
+        ir.add("addl", "ebx", "eax", "eax");
+      }
+      if (data.get_val(3) == "-") {
+        ir.add("subl", "ebx", "eax", "eax");
+      }
+      if (data.get_val(3) == "*") {
+        ir.add("imull", "ebx", "", "eax");
+      }
+      if (data.get_val(3) == "/") {
+        ir.add("idivl", "ebx", "", "eax");
+
+      }
+      //start assigning
+      string name = data.get_val(7);
+      var_info = table.find(name);
+
+      //checking 
+      if (var_info.size() == 0) {
+        cerr << "ERROR : variable " << name << " not found, error ";
+        return false;
+      }
+      if (var_info[3].size() != 0) {
+        cerr << "ERROR : " << name << " is a function, not variable, error ";
+        return false;
+      }
+      // assign
+      if (var_info[0] == "int")  ir.add("movl", "eax", "", var_info[2]);
+      if (var_info[0] == "char") ir.add("movb", "al",  "", var_info[2]);
     }
+
+    // for a = add ( a + b );
     if (sub_type == "call_func") {
-      //copy of call_func
+      vector <string> swap;
+      while (true) {
+        string val = data.get_val();
+        if (val == "") break;
+        swap.push_back(val);
+      }
+      // made a tmp func type info
+      {
+        info data("call_func");
+        for (auto i = 0u; i < swap.size()-2; i++)
+          data.add_val(swap[i]);
+
+        var_info = table.find(data.get_val(1));
+        string ret_type  = var_info[0];
+        string func_name = var_info[1];
+        vector <string> para_type;
+       
+        if (var_info[3] == "") {
+          cerr << "ERROR : "  << func_name << " is not a func, error ";
+          return false;
+        }
+
+        string tmp;
+        istringstream iss(var_info[3]);
+        iss >> tmp;
+        while (!iss.eof()) {
+          iss >> tmp;
+          para_type.push_back(tmp);
+        }
+
+        data.get_val();
+        data.get_val();
+
+        unsigned int  n_para = 0;
+        while (true) {
+          if (data.get_val() == "")
+            break;
+          n_para++;
+          if (n_para > para_type.size()) {
+            cerr << "ERROR : too many parameters for function " << func_name << ", error "; 
+            return false;
+          }
+          string name = data.get_val();
+          var_info    = table.find(name);
+          
+          // checking
+          if (var_info.size() == 0) {
+            cerr << "ERROR : variable " << name << " not found, error ";
+            return false;
+          }
+          if (var_info[3].size() != 0) {
+            cerr << "ERROR : " << name << " is a function, not variable, error ";
+            return false;
+          }
+
+          // adding IR
+          if (var_info[0] == "int") {
+            switch (n_para) {
+              case 1:
+                ir.add("movl", var_info[2], "", "eax");
+                break;
+              case 2:
+                ir.add("movl", var_info[2], "", "ebx");
+                break;
+              case 3:
+                ir.add("movl", var_info[2], "", "ecx");
+                break;
+              case 4:
+                ir.add("movl", var_info[2], "", "edx");
+                break;
+            }
+          } 
+          if (var_info[0] == "char") {
+            switch (n_para) {
+              case 1:
+                ir.add("movzbl", var_info[2], "", "eax");
+                break;
+              case 2:
+                ir.add("movzbl", var_info[2], "", "ebx");
+                break;
+              case 3:
+                ir.add("movzbl", var_info[2], "", "ecx");
+                break;
+              case 4:
+                ir.add("movzbl", var_info[2], "", "edx");
+                break;
+            }
+          } 
+        }
+        if (n_para < para_type.size()) {
+          cerr << "ERROR : too less parameters for function " << func_name << ", error "; 
+          return false;
+        }
+        ir.add("call", func_name, "", "");
+      }
+
+      string name = swap[swap.size()-1];
+      var_info = table.find(name);
+
+      //checking 
+      if (var_info.size() == 0) {
+        cerr << "ERROR : variable " << name << " not found, error ";
+        return false;
+      }
+      if (var_info[3].size() != 0) {
+        cerr << "ERROR : " << name << " is a function, not variable, error ";
+        return false;
+      }
+      if (var_info[0] == "int") {
+        ir.add("movl", "eax", "", var_info[2]);
+      }
+      if (var_info[0] == "char") {
+        ir.add("movb", "al", "", var_info[2]);
+      }
+    }
+
+    //end of ass operation
+  }
+
+  if (data.get_type() == "ret") {
+    string sub_type = data.get_val();
+    if (sub_type == "unknow") { // to do
+      string name = data.get_val(1);
+      var_info    = table.find(name);
+      //checking 
+      if (var_info.size() == 0) {
+        cerr << "ERROR : variable " << name << " not found, error ";
+        return false;
+      }
+      if (var_info[3].size() != 0) {
+        cerr << "ERROR : " << name << " is a function, not variable, error ";
+        return false;
+      }
+      if (var_info[0] == "int")  ir.add("movl",   var_info[2], "", "eax");
+      if (var_info[0] == "char") ir.add("movzbl", var_info[2], "", "eax");
+    }
+    if (sub_type == "str") {
+      //sorry, i can`t finish it yet
+    }
+    if (sub_type == "num") {
+      ir.add("movl", "$" + data.get_val(1), "", "eax");
+    }
+    if (sub_type == "character") {
+      char tmp = data.get_val(1)[0];
+      int  ascii = int(tmp);
+      string code = to_string(ascii);
+      ir.add("movl", "$" + code, "", "eax");
     }
   }
 
@@ -740,6 +1026,19 @@ int main () {
   trim_expr.insert("func");
   trim_expr.insert("call_func");
   trim_expr.insert("ass");
+  trim_expr.insert("ret");
+  {
+    table.add ("char", "getchar", "func");
+    ir.add("func", "", "", "getchar");
+    ir.add("movzbl", "al", "", "eax");
+    ir.add("call", "gcc_getchar", "", "");
+
+    table.add ("char", "putchar", "func char");  
+    ir.add("func", "", "", "putchar");
+    ir.add("init", "1", "", "1");
+    ir.add("movb", "al", "", "1");
+    ir.add("call", "gcc_putchar", "", "");
+  }
 
   string buff1, buff2;
   int n_line;

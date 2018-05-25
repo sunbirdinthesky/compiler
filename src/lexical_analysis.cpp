@@ -39,6 +39,9 @@ class state_machine {
     state_machine () {
       root = new node();
 
+      insert("return");
+      pool[cur_node] = "cmd";
+
       insert("int");
       pool[cur_node] = "key";
 
@@ -92,6 +95,7 @@ class state_machine {
 
       str_self_loop();
       num_self_loop();
+      character_self_loop();
 
       reset();
     }
@@ -138,6 +142,19 @@ class state_machine {
         }
         pool[num] = "num";
       }
+
+      void character_self_loop () {
+        root->child['\''] = new node();
+        cur_node = root->child['\''];
+
+        for (int i = 0; i < 128; i++) cur_node->child[i] = cur_node;
+
+        cur_node->child['\''] = new node();
+        cur_node = cur_node->child['\''];
+        cur_node->is_end = true;
+        pool[cur_node] = "character";
+      }
+
 
       node   *root;
       node   *cur_node;

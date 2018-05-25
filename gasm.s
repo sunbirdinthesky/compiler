@@ -1,6 +1,6 @@
 .section .data
 .section .text
-    .global main
+.global main
 
 #初始化 add
 add:
