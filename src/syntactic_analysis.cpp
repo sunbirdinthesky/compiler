@@ -1,3 +1,8 @@
+/*
+ *  copyright: chunqi.wang
+ *  you can use these code for free
+ */
+
 #include <iostream>
 #include <map>
 #include <vector>
@@ -176,6 +181,10 @@ class symbol_list {
           n_shift = 0;
         }
 
+        domain (int shift) {
+          n_shift = shift;
+        }
+
         vector <string> find (string name) {
           vector <string> res;
           auto it = index.find(name);
@@ -198,6 +207,10 @@ class symbol_list {
           if (a == "char") n_shift += 1;
           address.push_back(to_string(n_shift));
         }
+
+        int get_shift() {
+          return n_shift;
+        }
       private:
         int n_shift;
         map <string, int> index;
@@ -216,6 +229,13 @@ class symbol_list {
       cur = new domain();
       cur -> father = tmp;
     }
+
+    void new_special_level () {
+      domain* tmp = cur;
+      cur = new domain(tmp->get_shift());
+      cur -> father = tmp;
+    }
+
 //定义域下沉一层
     bool last_level () {
       if (cur->father == NULL) 
@@ -237,6 +257,20 @@ class symbol_list {
           return res;
       }
       return res;
+    }
+
+    vector <string> find_in_current (string name) {
+      return cur->find(name);
+    }
+
+    bool addi_in_current (string a, string b, string func_para_type) {
+      if (find_in_current(b).size() == 0) {
+        cur->add (a, b, func_para_type);
+        return true;
+      } else {
+        cerr << "ERROR : Multi define of " << a << " " << b << " ";
+        return false;
+      }
     }
 
     bool add (string a, string b, string func_para_type) {
@@ -464,16 +498,14 @@ void reduce (vector <info> &info_list, stage_machine &dfa) {
         if (type == "oper") { 
           info tmp("oper");
           //first elm
-          val = info_list[loop].get_val(1);
-          tmp.add_val("unknow");
-          tmp.add_val(val);
+          tmp.add_val(info_list[loop].get_val(0));
+          tmp.add_val(info_list[loop].get_val(1));
           //second elm : operactor
           val = info_list[loop+1].get_type().substr(3);
           tmp.add_val(val);
           //thrid  elm
-          val = info_list[loop+2].get_val(1);
-          tmp.add_val("unknow");
-          tmp.add_val(val);
+          tmp.add_val(info_list[loop+2].get_val(0));
+          tmp.add_val(info_list[loop+2].get_val(1));
 
           info_list.erase(info_list.begin()+loop+1, info_list.begin()+n_elm+1);
           info_list[loop] = tmp;
@@ -571,9 +603,9 @@ bool generate_ir (symbol_list &table, vector <info> &info_list) {
   }
 
   if (data.get_type() == "init") {
-    if (!table.add(data.get_val(0), data.get_val(1), ""))
+    if (!table.addi_in_current(data.get_val(0), data.get_val(1), ""))
       return false;
-    var_info = table.find(data.get_val(1));
+    var_info = table.find_in_current(data.get_val(1));
 
     if (data.get_val(0) == "int")
       ir.add("init", "4", "", var_info[2]); 
@@ -1054,7 +1086,7 @@ int main () {
 
     if (buff2 == "{") {
       if (info_list.size() == 0) {
-        table.new_level();
+        table.new_special_level();
         continue;
       }
       reduce (info_list, dfa);

@@ -16,13 +16,31 @@ string address_translater (string address) {
 int main () {
   string p1, p2, p3, p4;
   bool is_first_func = true;
+  vector <string> b1, b2, b3, b4;
 
   cout << ".section .data" << endl;
   cout << ".section .text" << endl;
   cout << ".global main" << endl;
   cout << endl;
-
+  
   while (cin >> p1 >> p2 >> p3 >> p4) {
+    b1.push_back(p1);
+    b2.push_back(p2);
+    b3.push_back(p3);
+    b4.push_back(p4);
+  }
+
+  for (int i = 0; i < b1.size(); i++) {
+    p1 = b1[i];
+    p2 = b2[i];
+    p3 = b3[i];
+    p4 = b4[i];
+    if (i < b1.size()-1) {
+      if (p1 == b1[i+1] && p2 == b4[i+1] && p3 == b3[i+1] && p4 == b2[i+1]) {
+        i++;
+        continue;
+      }
+    }
     if (p1 == "func") {
       if (is_first_func) 
         is_first_func = false;
