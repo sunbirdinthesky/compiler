@@ -1,26 +1,40 @@
-int add ( int a, int b) {
-  a = a + b;
+int add(int a, int b) {
+  a = a+b;
   return a;
 }
 
-int mul ( int a, int b ) {
-  int c;
-  a = add ( a, b );
-  a = a * b;
+int mul(int a, int b) {
+  a = add(a, b);
+  a = a*b;
   return a;
 }
 
-int main () {
+int div(int a, int b) {
+  a = a/b;
+  return a;
+}
+int main() {
   int a;
-  a = 1;
+  a = 3;
   int b;
-  b = 4;
-  a = mul ( a, b );
-  
+  b = 7;
+  a = mul(a, b);
+  putchar(a);
+
+  a = 142;
+  b = 2; 
+  a = div(a, b);
+  putchar(a);
+
   char c;
   c = 'a';
-  putchar ( c );
+  {
+    char c;
+    c = 'A';
+    putchar(c);
+  }
+  putchar(c);
   c = getchar ();
-  putchar ( c );
+  putchar(c);
   return 0;
 }

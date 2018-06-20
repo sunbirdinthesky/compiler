@@ -12,9 +12,6 @@ class state_machine {
       string key;
       key += val;
 
-      if (val == ' ' && cur_node != NULL && cur_node->child[97] == cur_node)
-        return "";
-
       if (trims.find(key) != trims.end()) {
         if (pool.find(cur_node) == pool.end()) { 
           return "id " + buff;
@@ -49,37 +46,37 @@ class state_machine {
       pool[cur_node] = "key";
 
       insert("=");
-      pool[cur_node] = "op";
+      pool[cur_node] = "ops";
 
       insert("+");
-      pool[cur_node] = "op";
+      pool[cur_node] = "ops";
 
       insert("-");
-      pool[cur_node] = "op";
+      pool[cur_node] = "ops";
 
       insert("*");
-      pool[cur_node] = "op";
+      pool[cur_node] = "ops";
 
       insert("/");
-      pool[cur_node] = "op";
+      pool[cur_node] = "ops";
 
       insert("{");
-      pool[cur_node] = "op";
+      pool[cur_node] = "ops";
 
       insert("}");
-      pool[cur_node] = "op";
+      pool[cur_node] = "ops";
 
       insert("(");
-      pool[cur_node] = "op";
+      pool[cur_node] = "ops";
 
       insert(")");
-      pool[cur_node] = "op";
+      pool[cur_node] = "ops";
 
       insert(",");
-      pool[cur_node] = "op";
+      pool[cur_node] = "ops";
 
       insert(";");
-      pool[cur_node] = "op";
+      pool[cur_node] = "ops";
 
       trims.insert("+");
       trims.insert("-");
@@ -183,8 +180,11 @@ int main (int argn, char** argv) {
       if (token != "") {
         cout << token << endl;
         token_tree.reset();
+        if (val != ' ')
+          cout << "ops " << val << endl;
+      } else {
+        token_tree.next(val);
       }
-      token_tree.next(val);
     }
   }
 }

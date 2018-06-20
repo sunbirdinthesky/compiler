@@ -54,46 +54,46 @@ class stage_machine{
       // paras  init  func
       root -> add("paras", s11);
       root -> add("para",  s21);
-      s11  -> add("op ,", s12);
-      s21  -> add("op ,", s12);
+      s11  -> add("ops ,", s12);
+      s21  -> add("ops ,", s12);
       s12  -> add("para", s13);  //paras
-      s21  -> add("op ;", s22);  //init
-      s21  -> add("op (", s32);
+      s21  -> add("ops ;", s22);  //init
+      s21  -> add("ops (", s32);
       s32  -> add("paras", s32);
       s32  -> add("para", s32);
-      s32  -> add("op )", s34); //func
+      s32  -> add("ops )", s34); //func
 
       root -> add("key int",  s41);
       root -> add("key char",  s41);
       s41  -> add("id",   s42); //para
 
       root -> add("id",  s51);
-      s51  -> add("op (", s52);
+      s51  -> add("ops (", s52);
       s52  -> add("id", s52);
       s52  -> add("ids", s52);
-      s52  -> add("op )", s54);
-      s54  -> add("op ;", s55); //call_func
+      s52  -> add("ops )", s54);
+      s54  -> add("ops ;", s55); //call_func
 
-      s51  -> add("op =", s511); 
+      s51  -> add("ops =", s511); 
       s511 -> add("id", s512); 
       s511 -> add("num", s512); 
       s511 -> add("str", s512); 
       s511 -> add("character", s512); 
       s511 -> add("oper", s513); 
-      s512 -> add("op ;", s513); 
+      s512 -> add("ops ;", s513); 
       s511 -> add("call_func", s513); //ass 
 
-      s51  -> add("op +", s514); 
-      s51  -> add("op -", s514); 
-      s51  -> add("op *", s514); 
-      s51  -> add("op /", s514); 
+      s51  -> add("ops +", s514); 
+      s51  -> add("ops -", s514); 
+      s51  -> add("ops *", s514); 
+      s51  -> add("ops /", s514); 
       s514 -> add("id", s515); 
       s514 -> add("num", s515); 
-      s515 -> add("op ;", s516); //oper
+      s515 -> add("ops ;", s516); //oper
 
       root -> add("ids",  s60);
-      s51  -> add("op ,", s61);
-      s60  -> add("op ,", s61);
+      s51  -> add("ops ,", s61);
+      s60  -> add("ops ,", s61);
       s61  -> add("id", s62); //ids
 
 
@@ -102,7 +102,7 @@ class stage_machine{
       s70  -> add("str", s71);
       s70  -> add("num", s71);
       s70  -> add("character", s71);
-      s71  -> add("op ;", s72);  //return id/num/char/str
+      s71  -> add("ops ;", s72);  //return id/num/char/str
     }
 
     void reset () {    //状态恢复到最初
@@ -501,7 +501,7 @@ void reduce (vector <info> &info_list, stage_machine &dfa) {
           tmp.add_val(info_list[loop].get_val(0));
           tmp.add_val(info_list[loop].get_val(1));
           //second elm : operactor
-          val = info_list[loop+1].get_type().substr(3);
+          val = info_list[loop+1].get_type().substr(4);
           tmp.add_val(val);
           //thrid  elm
           tmp.add_val(info_list[loop+2].get_val(0));
@@ -870,8 +870,8 @@ bool generate_ir (symbol_list &table, vector <info> &info_list) {
         ir.add("imull", "ebx", "", "eax");
       }
       if (data.get_val(3) == "/") {
+        ir.add("cltd", "", "", "");
         ir.add("idivl", "ebx", "", "eax");
-
       }
       //start assigning
       string name = data.get_val(7);
@@ -1041,6 +1041,8 @@ bool generate_ir (symbol_list &table, vector <info> &info_list) {
       string code = to_string(ascii);
       ir.add("movl", "$" + code, "", "eax");
     }
+    ir.add("leave", "", "", "");
+    ir.add("ret", "", "", "");
   }
 
   info_list.clear();
@@ -1064,12 +1066,16 @@ int main () {
     ir.add("func", "", "", "getchar");
     ir.add("movzbl", "al", "", "eax");
     ir.add("call", "gcc_getchar", "", "");
+    ir.add("leave", "", "", "");
+    ir.add("ret", "", "", "");
 
     table.add ("char", "putchar", "func char");  
     ir.add("func", "", "", "putchar");
     ir.add("init", "1", "", "1");
     ir.add("movb", "al", "", "1");
     ir.add("call", "gcc_putchar", "", "");
+    ir.add("leave", "", "", "");
+    ir.add("ret", "", "", "");
   }
 
   string buff1, buff2;

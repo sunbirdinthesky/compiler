@@ -1,0 +1,2229 @@
+[info] : input key int
+[info] : input id add
+[info] : input ops (
+[info] : input key int
+[info] : input id a
+[info] : input ops ,
+[info] : input key int
+[info] : input id b
+[info] : input ops )
+[info] : input ops {
+[info] : total, loaded, ptr : 9 1 0
+[info] : str processing: <key int>  <id>  
+[info] : stage of dfa : para
+
+[info] : total, loaded, ptr : 8 1 0
+[info] : str processing: <para>  <ops (>  
+[info] : stage of dfa : NOT DEFINE
+
+[info] : total, loaded, ptr : 8 2 1
+[info] : str processing: <ops (>  <key int>  
+[info] : stage of dfa : INVALID
+
+[info] : total, loaded, ptr : 8 2 0
+[info] : str processing: <para>  <ops (>  <key int>  
+[info] : stage of dfa : INVALID
+
+[info] : total, loaded, ptr : 8 3 2
+[info] : str processing: <key int>  <id>  
+[info] : stage of dfa : para
+
+[info] : total, loaded, ptr : 7 2 1
+[info] : str processing: <ops (>  <para>  
+[info] : stage of dfa : INVALID
+
+[info] : total, loaded, ptr : 7 2 0
+[info] : str processing: <para>  <ops (>  <para>  
+[info] : stage of dfa : NOT DEFINE
+
+[info] : total, loaded, ptr : 7 3 2
+[info] : str processing: <para>  <ops ,>  
+[info] : stage of dfa : NOT DEFINE
+
+[info] : total, loaded, ptr : 7 3 1
+[info] : str processing: <ops (>  <para>  <ops ,>  
+[info] : stage of dfa : INVALID
+
+[info] : total, loaded, ptr : 7 3 0
+[info] : str processing: <para>  <ops (>  <para>  <ops ,>  
+[info] : stage of dfa : INVALID
+
+[info] : total, loaded, ptr : 7 4 3
+[info] : str processing: <ops ,>  <key int>  
+[info] : stage of dfa : INVALID
+
+[info] : total, loaded, ptr : 7 4 2
+[info] : str processing: <para>  <ops ,>  <key int>  
+[info] : stage of dfa : INVALID
+
+[info] : total, loaded, ptr : 7 4 1
+[info] : str processing: <ops (>  <para>  <ops ,>  <key int>  
+[info] : stage of dfa : INVALID
+
+[info] : total, loaded, ptr : 7 4 0
+[info] : str processing: <para>  <ops (>  <para>  <ops ,>  <key int>  
+[info] : stage of dfa : INVALID
+
+[info] : total, loaded, ptr : 7 5 4
+[info] : str processing: <key int>  <id>  
+[info] : stage of dfa : para
+
+[info] : total, loaded, ptr : 6 4 3
+[info] : str processing: <ops ,>  <para>  
+[info] : stage of dfa : INVALID
+
+[info] : total, loaded, ptr : 6 4 2
+[info] : str processing: <para>  <ops ,>  <para>  
+[info] : stage of dfa : paras
+
+[info] : total, loaded, ptr : 4 2 1
+[info] : str processing: <ops (>  <paras>  
+[info] : stage of dfa : INVALID
+
+[info] : total, loaded, ptr : 4 2 0
+[info] : str processing: <para>  <ops (>  <paras>  
+[info] : stage of dfa : NOT DEFINE
+
+[info] : total, loaded, ptr : 4 3 2
+[info] : str processing: <paras>  <ops )>  
+[info] : stage of dfa : INVALID
+
+[info] : total, loaded, ptr : 4 3 1
+[info] : str processing: <ops (>  <paras>  <ops )>  
+[info] : stage of dfa : INVALID
+
+[info] : total, loaded, ptr : 4 3 0
+[info] : str processing: <para>  <ops (>  <paras>  <ops )>  
+[info] : stage of dfa : func
+
+int
+add
+int
+a
+int
+b
+[IR line 0] : <func> <> <> <getchar>
+[IR line 1] : <movzbl> <al> <> <eax>
+[IR line 2] : <call> <gcc_getchar> <> <>
+[IR line 3] : <leave> <> <> <>
+[IR line 4] : <ret> <> <> <>
+[IR line 5] : <func> <> <> <putchar>
+[IR line 6] : <init> <1> <> <1>
+[IR line 7] : <movb> <al> <> <1>
+[IR line 8] : <call> <gcc_putchar> <> <>
+[IR line 9] : <leave> <> <> <>
+[IR line 10] : <ret> <> <> <>
+[IR line 11] : <func> <> <> <add>
+[IR line 12] : <init> <4> <> <4>
+[IR line 13] : <movl> <eax> <> <4>
+[IR line 14] : <init> <4> <> <8>
+[IR line 15] : <movl> <ebx> <> <8>
+[info] : input id a
+[info] : input ops =
+[info] : input id a
+[info] : input ops +
+[info] : input id b
+[info] : input ops ;
+[info] : total, loaded, ptr : 6 1 0
+[info] : str processing: <id>  <ops =>  
+[info] : stage of dfa : NOT DEFINE
+
+[info] : total, loaded, ptr : 6 2 1
+[info] : str processing: <ops =>  <id>  
+[info] : stage of dfa : INVALID
+
+[info] : total, loaded, ptr : 6 2 0
+[info] : str processing: <id>  <ops =>  <id>  
+[info] : stage of dfa : NOT DEFINE
+
+[info] : total, loaded, ptr : 6 3 2
+[info] : str processing: <id>  <ops +>  
+[info] : stage of dfa : NOT DEFINE
+
+[info] : total, loaded, ptr : 6 3 1
+[info] : str processing: <ops =>  <id>  <ops +>  
+[info] : stage of dfa : INVALID
+
+[info] : total, loaded, ptr : 6 3 0
+[info] : str processing: <id>  <ops =>  <id>  <ops +>  
+[info] : stage of dfa : INVALID
+
+[info] : total, loaded, ptr : 6 4 3
+[info] : str processing: <ops +>  <id>  
+[info] : stage of dfa : INVALID
+
+[info] : total, loaded, ptr : 6 4 2
+[info] : str processing: <id>  <ops +>  <id>  
+[info] : stage of dfa : NOT DEFINE
+
+[info] : total, loaded, ptr : 6 4 1
+[info] : str processing: <ops =>  <id>  <ops +>  <id>  
+[info] : stage of dfa : INVALID
+
+[info] : total, loaded, ptr : 6 4 0
+[info] : str processing: <id>  <ops =>  <id>  <ops +>  <id>  
+[info] : stage of dfa : INVALID
+
+[info] : total, loaded, ptr : 6 5 4
+[info] : str processing: <id>  <ops ;>  
+[info] : stage of dfa : INVALID
+
+[info] : total, loaded, ptr : 6 5 3
+[info] : str processing: <ops +>  <id>  <ops ;>  
+[info] : stage of dfa : INVALID
+
+[info] : total, loaded, ptr : 6 5 2
+[info] : str processing: <id>  <ops +>  <id>  <ops ;>  
+[info] : stage of dfa : oper
+
+[info] : total, loaded, ptr : 3 2 1
+[info] : str processing: <ops =>  <oper>  
+[info] : stage of dfa : INVALID
+
+[info] : total, loaded, ptr : 3 2 0
+[info] : str processing: <id>  <ops =>  <oper>  
+[info] : stage of dfa : ass
+
+oper
+unknow
+a
++
+unknow
+b
+unknow
+a
+[IR line 0] : <func> <> <> <getchar>
+[IR line 1] : <movzbl> <al> <> <eax>
+[IR line 2] : <call> <gcc_getchar> <> <>
+[IR line 3] : <leave> <> <> <>
+[IR line 4] : <ret> <> <> <>
+[IR line 5] : <func> <> <> <putchar>
+[IR line 6] : <init> <1> <> <1>
+[IR line 7] : <movb> <al> <> <1>
+[IR line 8] : <call> <gcc_putchar> <> <>
+[IR line 9] : <leave> <> <> <>
+[IR line 10] : <ret> <> <> <>
+[IR line 11] : <func> <> <> <add>
+[IR line 12] : <init> <4> <> <4>
+[IR line 13] : <movl> <eax> <> <4>
+[IR line 14] : <init> <4> <> <8>
+[IR line 15] : <movl> <ebx> <> <8>
+[IR line 16] : <movl> <4> <> <eax>
+[IR line 17] : <movl> <8> <> <ebx>
+[IR line 18] : <addl> <ebx> <eax> <eax>
+[IR line 19] : <movl> <eax> <> <4>
+[info] : input cmd return
+[info] : input id a
+[info] : input ops ;
+[info] : total, loaded, ptr : 3 1 0
+[info] : str processing: <cmd return>  <id>  
+[info] : stage of dfa : NOT DEFINE
+
+[info] : total, loaded, ptr : 3 2 1
+[info] : str processing: <id>  <ops ;>  
+[info] : stage of dfa : INVALID
+
+[info] : total, loaded, ptr : 3 2 0
+[info] : str processing: <cmd return>  <id>  <ops ;>  
+[info] : stage of dfa : ret
+
+unknow
+a
+[IR line 0] : <func> <> <> <getchar>
+[IR line 1] : <movzbl> <al> <> <eax>
+[IR line 2] : <call> <gcc_getchar> <> <>
+[IR line 3] : <leave> <> <> <>
+[IR line 4] : <ret> <> <> <>
+[IR line 5] : <func> <> <> <putchar>
+[IR line 6] : <init> <1> <> <1>
+[IR line 7] : <movb> <al> <> <1>
+[IR line 8] : <call> <gcc_putchar> <> <>
+[IR line 9] : <leave> <> <> <>
+[IR line 10] : <ret> <> <> <>
+[IR line 11] : <func> <> <> <add>
+[IR line 12] : <init> <4> <> <4>
+[IR line 13] : <movl> <eax> <> <4>
+[IR line 14] : <init> <4> <> <8>
+[IR line 15] : <movl> <ebx> <> <8>
+[IR line 16] : <movl> <4> <> <eax>
+[IR line 17] : <movl> <8> <> <ebx>
+[IR line 18] : <addl> <ebx> <eax> <eax>
+[IR line 19] : <movl> <eax> <> <4>
+[IR line 20] : <movl> <4> <> <eax>
+[IR line 21] : <leave> <> <> <>
+[IR line 22] : <ret> <> <> <>
+[info] : input ops }
+[info] : input key int
+[info] : input id mul
+[info] : input ops (
+[info] : input key int
+[info] : input id a
+[info] : input ops ,
+[info] : input key int
+[info] : input id b
+[info] : input ops )
+[info] : input ops {
+[info] : total, loaded, ptr : 9 1 0
+[info] : str processing: <key int>  <id>  
+[info] : stage of dfa : para
+
+[info] : total, loaded, ptr : 8 1 0
+[info] : str processing: <para>  <ops (>  
+[info] : stage of dfa : NOT DEFINE
+
+[info] : total, loaded, ptr : 8 2 1
+[info] : str processing: <ops (>  <key int>  
+[info] : stage of dfa : INVALID
+
+[info] : total, loaded, ptr : 8 2 0
+[info] : str processing: <para>  <ops (>  <key int>  
+[info] : stage of dfa : INVALID
+
+[info] : total, loaded, ptr : 8 3 2
+[info] : str processing: <key int>  <id>  
+[info] : stage of dfa : para
+
+[info] : total, loaded, ptr : 7 2 1
+[info] : str processing: <ops (>  <para>  
+[info] : stage of dfa : INVALID
+
+[info] : total, loaded, ptr : 7 2 0
+[info] : str processing: <para>  <ops (>  <para>  
+[info] : stage of dfa : NOT DEFINE
+
+[info] : total, loaded, ptr : 7 3 2
+[info] : str processing: <para>  <ops ,>  
+[info] : stage of dfa : NOT DEFINE
+
+[info] : total, loaded, ptr : 7 3 1
+[info] : str processing: <ops (>  <para>  <ops ,>  
+[info] : stage of dfa : INVALID
+
+[info] : total, loaded, ptr : 7 3 0
+[info] : str processing: <para>  <ops (>  <para>  <ops ,>  
+[info] : stage of dfa : INVALID
+
+[info] : total, loaded, ptr : 7 4 3
+[info] : str processing: <ops ,>  <key int>  
+[info] : stage of dfa : INVALID
+
+[info] : total, loaded, ptr : 7 4 2
+[info] : str processing: <para>  <ops ,>  <key int>  
+[info] : stage of dfa : INVALID
+
+[info] : total, loaded, ptr : 7 4 1
+[info] : str processing: <ops (>  <para>  <ops ,>  <key int>  
+[info] : stage of dfa : INVALID
+
+[info] : total, loaded, ptr : 7 4 0
+[info] : str processing: <para>  <ops (>  <para>  <ops ,>  <key int>  
+[info] : stage of dfa : INVALID
+
+[info] : total, loaded, ptr : 7 5 4
+[info] : str processing: <key int>  <id>  
+[info] : stage of dfa : para
+
+[info] : total, loaded, ptr : 6 4 3
+[info] : str processing: <ops ,>  <para>  
+[info] : stage of dfa : INVALID
+
+[info] : total, loaded, ptr : 6 4 2
+[info] : str processing: <para>  <ops ,>  <para>  
+[info] : stage of dfa : paras
+
+[info] : total, loaded, ptr : 4 2 1
+[info] : str processing: <ops (>  <paras>  
+[info] : stage of dfa : INVALID
+
+[info] : total, loaded, ptr : 4 2 0
+[info] : str processing: <para>  <ops (>  <paras>  
+[info] : stage of dfa : NOT DEFINE
+
+[info] : total, loaded, ptr : 4 3 2
+[info] : str processing: <paras>  <ops )>  
+[info] : stage of dfa : INVALID
+
+[info] : total, loaded, ptr : 4 3 1
+[info] : str processing: <ops (>  <paras>  <ops )>  
+[info] : stage of dfa : INVALID
+
+[info] : total, loaded, ptr : 4 3 0
+[info] : str processing: <para>  <ops (>  <paras>  <ops )>  
+[info] : stage of dfa : func
+
+int
+mul
+int
+a
+int
+b
+[IR line 0] : <func> <> <> <getchar>
+[IR line 1] : <movzbl> <al> <> <eax>
+[IR line 2] : <call> <gcc_getchar> <> <>
+[IR line 3] : <leave> <> <> <>
+[IR line 4] : <ret> <> <> <>
+[IR line 5] : <func> <> <> <putchar>
+[IR line 6] : <init> <1> <> <1>
+[IR line 7] : <movb> <al> <> <1>
+[IR line 8] : <call> <gcc_putchar> <> <>
+[IR line 9] : <leave> <> <> <>
+[IR line 10] : <ret> <> <> <>
+[IR line 11] : <func> <> <> <add>
+[IR line 12] : <init> <4> <> <4>
+[IR line 13] : <movl> <eax> <> <4>
+[IR line 14] : <init> <4> <> <8>
+[IR line 15] : <movl> <ebx> <> <8>
+[IR line 16] : <movl> <4> <> <eax>
+[IR line 17] : <movl> <8> <> <ebx>
+[IR line 18] : <addl> <ebx> <eax> <eax>
+[IR line 19] : <movl> <eax> <> <4>
+[IR line 20] : <movl> <4> <> <eax>
+[IR line 21] : <leave> <> <> <>
+[IR line 22] : <ret> <> <> <>
+[IR line 23] : <func> <> <> <mul>
+[IR line 24] : <init> <4> <> <4>
+[IR line 25] : <movl> <eax> <> <4>
+[IR line 26] : <init> <4> <> <8>
+[IR line 27] : <movl> <ebx> <> <8>
+[info] : input id a
+[info] : input ops =
+[info] : input id add
+[info] : input ops (
+[info] : input id a
+[info] : input ops ,
+[info] : input id b
+[info] : input ops )
+[info] : input ops ;
+[info] : total, loaded, ptr : 9 1 0
+[info] : str processing: <id>  <ops =>  
+[info] : stage of dfa : NOT DEFINE
+
+[info] : total, loaded, ptr : 9 2 1
+[info] : str processing: <ops =>  <id>  
+[info] : stage of dfa : INVALID
+
+[info] : total, loaded, ptr : 9 2 0
+[info] : str processing: <id>  <ops =>  <id>  
+[info] : stage of dfa : NOT DEFINE
+
+[info] : total, loaded, ptr : 9 3 2
+[info] : str processing: <id>  <ops (>  
+[info] : stage of dfa : NOT DEFINE
+
+[info] : total, loaded, ptr : 9 3 1
+[info] : str processing: <ops =>  <id>  <ops (>  
+[info] : stage of dfa : INVALID
+
+[info] : total, loaded, ptr : 9 3 0
+[info] : str processing: <id>  <ops =>  <id>  <ops (>  
+[info] : stage of dfa : INVALID
+
+[info] : total, loaded, ptr : 9 4 3
+[info] : str processing: <ops (>  <id>  
+[info] : stage of dfa : INVALID
+
+[info] : total, loaded, ptr : 9 4 2
+[info] : str processing: <id>  <ops (>  <id>  
+[info] : stage of dfa : NOT DEFINE
+
+[info] : total, loaded, ptr : 9 4 1
+[info] : str processing: <ops =>  <id>  <ops (>  <id>  
+[info] : stage of dfa : INVALID
+
+[info] : total, loaded, ptr : 9 4 0
+[info] : str processing: <id>  <ops =>  <id>  <ops (>  <id>  
+[info] : stage of dfa : INVALID
+
+[info] : total, loaded, ptr : 9 5 4
+[info] : str processing: <id>  <ops ,>  
+[info] : stage of dfa : NOT DEFINE
+
+[info] : total, loaded, ptr : 9 5 3
+[info] : str processing: <ops (>  <id>  <ops ,>  
+[info] : stage of dfa : INVALID
+
+[info] : total, loaded, ptr : 9 5 2
+[info] : str processing: <id>  <ops (>  <id>  <ops ,>  
+[info] : stage of dfa : INVALID
+
+[info] : total, loaded, ptr : 9 5 1
+[info] : str processing: <ops =>  <id>  <ops (>  <id>  <ops ,>  
+[info] : stage of dfa : INVALID
+
+[info] : total, loaded, ptr : 9 5 0
+[info] : str processing: <id>  <ops =>  <id>  <ops (>  <id>  <ops ,>  
+[info] : stage of dfa : INVALID
+
+[info] : total, loaded, ptr : 9 6 5
+[info] : str processing: <ops ,>  <id>  
+[info] : stage of dfa : INVALID
+
+[info] : total, loaded, ptr : 9 6 4
+[info] : str processing: <id>  <ops ,>  <id>  
+[info] : stage of dfa : ids
+
+[info] : total, loaded, ptr : 7 4 3
+[info] : str processing: <ops (>  <ids>  
+[info] : stage of dfa : INVALID
+
+[info] : total, loaded, ptr : 7 4 2
+[info] : str processing: <id>  <ops (>  <ids>  
+[info] : stage of dfa : NOT DEFINE
+
+[info] : total, loaded, ptr : 7 4 1
+[info] : str processing: <ops =>  <id>  <ops (>  <ids>  
+[info] : stage of dfa : INVALID
+
+[info] : total, loaded, ptr : 7 4 0
+[info] : str processing: <id>  <ops =>  <id>  <ops (>  <ids>  
+[info] : stage of dfa : INVALID
+
+[info] : total, loaded, ptr : 7 5 4
+[info] : str processing: <ids>  <ops )>  
+[info] : stage of dfa : INVALID
+
+[info] : total, loaded, ptr : 7 5 3
+[info] : str processing: <ops (>  <ids>  <ops )>  
+[info] : stage of dfa : INVALID
+
+[info] : total, loaded, ptr : 7 5 2
+[info] : str processing: <id>  <ops (>  <ids>  <ops )>  
+[info] : stage of dfa : NOT DEFINE
+
+[info] : total, loaded, ptr : 7 5 1
+[info] : str processing: <ops =>  <id>  <ops (>  <ids>  <ops )>  
+[info] : stage of dfa : INVALID
+
+[info] : total, loaded, ptr : 7 5 0
+[info] : str processing: <id>  <ops =>  <id>  <ops (>  <ids>  <ops )>  
+[info] : stage of dfa : INVALID
+
+[info] : total, loaded, ptr : 7 6 5
+[info] : str processing: <ops )>  <ops ;>  
+[info] : stage of dfa : INVALID
+
+[info] : total, loaded, ptr : 7 6 4
+[info] : str processing: <ids>  <ops )>  <ops ;>  
+[info] : stage of dfa : INVALID
+
+[info] : total, loaded, ptr : 7 6 3
+[info] : str processing: <ops (>  <ids>  <ops )>  <ops ;>  
+[info] : stage of dfa : INVALID
+
+[info] : total, loaded, ptr : 7 6 2
+[info] : str processing: <id>  <ops (>  <ids>  <ops )>  <ops ;>  
+[info] : stage of dfa : call_func
+
+[info] : total, loaded, ptr : 3 2 1
+[info] : str processing: <ops =>  <call_func>  
+[info] : stage of dfa : INVALID
+
+[info] : total, loaded, ptr : 3 2 0
+[info] : str processing: <id>  <ops =>  <call_func>  
+[info] : stage of dfa : ass
+
+call_func
+unknow
+add
+unknow
+a
+unknow
+b
+unknow
+a
+[IR line 0] : <func> <> <> <getchar>
+[IR line 1] : <movzbl> <al> <> <eax>
+[IR line 2] : <call> <gcc_getchar> <> <>
+[IR line 3] : <leave> <> <> <>
+[IR line 4] : <ret> <> <> <>
+[IR line 5] : <func> <> <> <putchar>
+[IR line 6] : <init> <1> <> <1>
+[IR line 7] : <movb> <al> <> <1>
+[IR line 8] : <call> <gcc_putchar> <> <>
+[IR line 9] : <leave> <> <> <>
+[IR line 10] : <ret> <> <> <>
+[IR line 11] : <func> <> <> <add>
+[IR line 12] : <init> <4> <> <4>
+[IR line 13] : <movl> <eax> <> <4>
+[IR line 14] : <init> <4> <> <8>
+[IR line 15] : <movl> <ebx> <> <8>
+[IR line 16] : <movl> <4> <> <eax>
+[IR line 17] : <movl> <8> <> <ebx>
+[IR line 18] : <addl> <ebx> <eax> <eax>
+[IR line 19] : <movl> <eax> <> <4>
+[IR line 20] : <movl> <4> <> <eax>
+[IR line 21] : <leave> <> <> <>
+[IR line 22] : <ret> <> <> <>
+[IR line 23] : <func> <> <> <mul>
+[IR line 24] : <init> <4> <> <4>
+[IR line 25] : <movl> <eax> <> <4>
+[IR line 26] : <init> <4> <> <8>
+[IR line 27] : <movl> <ebx> <> <8>
+[IR line 28] : <movl> <4> <> <eax>
+[IR line 29] : <movl> <8> <> <ebx>
+[IR line 30] : <call> <add> <> <>
+[IR line 31] : <movl> <eax> <> <4>
+[info] : input id a
+[info] : input ops =
+[info] : input id a
+[info] : input ops *
+[info] : input id b
+[info] : input ops ;
+[info] : total, loaded, ptr : 6 1 0
+[info] : str processing: <id>  <ops =>  
+[info] : stage of dfa : NOT DEFINE
+
+[info] : total, loaded, ptr : 6 2 1
+[info] : str processing: <ops =>  <id>  
+[info] : stage of dfa : INVALID
+
+[info] : total, loaded, ptr : 6 2 0
+[info] : str processing: <id>  <ops =>  <id>  
+[info] : stage of dfa : NOT DEFINE
+
+[info] : total, loaded, ptr : 6 3 2
+[info] : str processing: <id>  <ops *>  
+[info] : stage of dfa : NOT DEFINE
+
+[info] : total, loaded, ptr : 6 3 1
+[info] : str processing: <ops =>  <id>  <ops *>  
+[info] : stage of dfa : INVALID
+
+[info] : total, loaded, ptr : 6 3 0
+[info] : str processing: <id>  <ops =>  <id>  <ops *>  
+[info] : stage of dfa : INVALID
+
+[info] : total, loaded, ptr : 6 4 3
+[info] : str processing: <ops *>  <id>  
+[info] : stage of dfa : INVALID
+
+[info] : total, loaded, ptr : 6 4 2
+[info] : str processing: <id>  <ops *>  <id>  
+[info] : stage of dfa : NOT DEFINE
+
+[info] : total, loaded, ptr : 6 4 1
+[info] : str processing: <ops =>  <id>  <ops *>  <id>  
+[info] : stage of dfa : INVALID
+
+[info] : total, loaded, ptr : 6 4 0
+[info] : str processing: <id>  <ops =>  <id>  <ops *>  <id>  
+[info] : stage of dfa : INVALID
+
+[info] : total, loaded, ptr : 6 5 4
+[info] : str processing: <id>  <ops ;>  
+[info] : stage of dfa : INVALID
+
+[info] : total, loaded, ptr : 6 5 3
+[info] : str processing: <ops *>  <id>  <ops ;>  
+[info] : stage of dfa : INVALID
+
+[info] : total, loaded, ptr : 6 5 2
+[info] : str processing: <id>  <ops *>  <id>  <ops ;>  
+[info] : stage of dfa : oper
+
+[info] : total, loaded, ptr : 3 2 1
+[info] : str processing: <ops =>  <oper>  
+[info] : stage of dfa : INVALID
+
+[info] : total, loaded, ptr : 3 2 0
+[info] : str processing: <id>  <ops =>  <oper>  
+[info] : stage of dfa : ass
+
+oper
+unknow
+a
+*
+unknow
+b
+unknow
+a
+[IR line 0] : <func> <> <> <getchar>
+[IR line 1] : <movzbl> <al> <> <eax>
+[IR line 2] : <call> <gcc_getchar> <> <>
+[IR line 3] : <leave> <> <> <>
+[IR line 4] : <ret> <> <> <>
+[IR line 5] : <func> <> <> <putchar>
+[IR line 6] : <init> <1> <> <1>
+[IR line 7] : <movb> <al> <> <1>
+[IR line 8] : <call> <gcc_putchar> <> <>
+[IR line 9] : <leave> <> <> <>
+[IR line 10] : <ret> <> <> <>
+[IR line 11] : <func> <> <> <add>
+[IR line 12] : <init> <4> <> <4>
+[IR line 13] : <movl> <eax> <> <4>
+[IR line 14] : <init> <4> <> <8>
+[IR line 15] : <movl> <ebx> <> <8>
+[IR line 16] : <movl> <4> <> <eax>
+[IR line 17] : <movl> <8> <> <ebx>
+[IR line 18] : <addl> <ebx> <eax> <eax>
+[IR line 19] : <movl> <eax> <> <4>
+[IR line 20] : <movl> <4> <> <eax>
+[IR line 21] : <leave> <> <> <>
+[IR line 22] : <ret> <> <> <>
+[IR line 23] : <func> <> <> <mul>
+[IR line 24] : <init> <4> <> <4>
+[IR line 25] : <movl> <eax> <> <4>
+[IR line 26] : <init> <4> <> <8>
+[IR line 27] : <movl> <ebx> <> <8>
+[IR line 28] : <movl> <4> <> <eax>
+[IR line 29] : <movl> <8> <> <ebx>
+[IR line 30] : <call> <add> <> <>
+[IR line 31] : <movl> <eax> <> <4>
+[IR line 32] : <movl> <4> <> <eax>
+[IR line 33] : <movl> <8> <> <ebx>
+[IR line 34] : <imull> <ebx> <> <eax>
+[IR line 35] : <movl> <eax> <> <4>
+[info] : input cmd return
+[info] : input id a
+[info] : input ops ;
+[info] : total, loaded, ptr : 3 1 0
+[info] : str processing: <cmd return>  <id>  
+[info] : stage of dfa : NOT DEFINE
+
+[info] : total, loaded, ptr : 3 2 1
+[info] : str processing: <id>  <ops ;>  
+[info] : stage of dfa : INVALID
+
+[info] : total, loaded, ptr : 3 2 0
+[info] : str processing: <cmd return>  <id>  <ops ;>  
+[info] : stage of dfa : ret
+
+unknow
+a
+[IR line 0] : <func> <> <> <getchar>
+[IR line 1] : <movzbl> <al> <> <eax>
+[IR line 2] : <call> <gcc_getchar> <> <>
+[IR line 3] : <leave> <> <> <>
+[IR line 4] : <ret> <> <> <>
+[IR line 5] : <func> <> <> <putchar>
+[IR line 6] : <init> <1> <> <1>
+[IR line 7] : <movb> <al> <> <1>
+[IR line 8] : <call> <gcc_putchar> <> <>
+[IR line 9] : <leave> <> <> <>
+[IR line 10] : <ret> <> <> <>
+[IR line 11] : <func> <> <> <add>
+[IR line 12] : <init> <4> <> <4>
+[IR line 13] : <movl> <eax> <> <4>
+[IR line 14] : <init> <4> <> <8>
+[IR line 15] : <movl> <ebx> <> <8>
+[IR line 16] : <movl> <4> <> <eax>
+[IR line 17] : <movl> <8> <> <ebx>
+[IR line 18] : <addl> <ebx> <eax> <eax>
+[IR line 19] : <movl> <eax> <> <4>
+[IR line 20] : <movl> <4> <> <eax>
+[IR line 21] : <leave> <> <> <>
+[IR line 22] : <ret> <> <> <>
+[IR line 23] : <func> <> <> <mul>
+[IR line 24] : <init> <4> <> <4>
+[IR line 25] : <movl> <eax> <> <4>
+[IR line 26] : <init> <4> <> <8>
+[IR line 27] : <movl> <ebx> <> <8>
+[IR line 28] : <movl> <4> <> <eax>
+[IR line 29] : <movl> <8> <> <ebx>
+[IR line 30] : <call> <add> <> <>
+[IR line 31] : <movl> <eax> <> <4>
+[IR line 32] : <movl> <4> <> <eax>
+[IR line 33] : <movl> <8> <> <ebx>
+[IR line 34] : <imull> <ebx> <> <eax>
+[IR line 35] : <movl> <eax> <> <4>
+[IR line 36] : <movl> <4> <> <eax>
+[IR line 37] : <leave> <> <> <>
+[IR line 38] : <ret> <> <> <>
+[info] : input ops }
+[info] : input key int
+[info] : input id main
+[info] : input ops (
+[info] : input ops )
+[info] : input ops {
+[info] : total, loaded, ptr : 4 1 0
+[info] : str processing: <key int>  <id>  
+[info] : stage of dfa : para
+
+[info] : total, loaded, ptr : 3 1 0
+[info] : str processing: <para>  <ops (>  
+[info] : stage of dfa : NOT DEFINE
+
+[info] : total, loaded, ptr : 3 2 1
+[info] : str processing: <ops (>  <ops )>  
+[info] : stage of dfa : INVALID
+
+[info] : total, loaded, ptr : 3 2 0
+[info] : str processing: <para>  <ops (>  <ops )>  
+[info] : stage of dfa : func
+
+int
+main
+[IR line 0] : <func> <> <> <getchar>
+[IR line 1] : <movzbl> <al> <> <eax>
+[IR line 2] : <call> <gcc_getchar> <> <>
+[IR line 3] : <leave> <> <> <>
+[IR line 4] : <ret> <> <> <>
+[IR line 5] : <func> <> <> <putchar>
+[IR line 6] : <init> <1> <> <1>
+[IR line 7] : <movb> <al> <> <1>
+[IR line 8] : <call> <gcc_putchar> <> <>
+[IR line 9] : <leave> <> <> <>
+[IR line 10] : <ret> <> <> <>
+[IR line 11] : <func> <> <> <add>
+[IR line 12] : <init> <4> <> <4>
+[IR line 13] : <movl> <eax> <> <4>
+[IR line 14] : <init> <4> <> <8>
+[IR line 15] : <movl> <ebx> <> <8>
+[IR line 16] : <movl> <4> <> <eax>
+[IR line 17] : <movl> <8> <> <ebx>
+[IR line 18] : <addl> <ebx> <eax> <eax>
+[IR line 19] : <movl> <eax> <> <4>
+[IR line 20] : <movl> <4> <> <eax>
+[IR line 21] : <leave> <> <> <>
+[IR line 22] : <ret> <> <> <>
+[IR line 23] : <func> <> <> <mul>
+[IR line 24] : <init> <4> <> <4>
+[IR line 25] : <movl> <eax> <> <4>
+[IR line 26] : <init> <4> <> <8>
+[IR line 27] : <movl> <ebx> <> <8>
+[IR line 28] : <movl> <4> <> <eax>
+[IR line 29] : <movl> <8> <> <ebx>
+[IR line 30] : <call> <add> <> <>
+[IR line 31] : <movl> <eax> <> <4>
+[IR line 32] : <movl> <4> <> <eax>
+[IR line 33] : <movl> <8> <> <ebx>
+[IR line 34] : <imull> <ebx> <> <eax>
+[IR line 35] : <movl> <eax> <> <4>
+[IR line 36] : <movl> <4> <> <eax>
+[IR line 37] : <leave> <> <> <>
+[IR line 38] : <ret> <> <> <>
+[IR line 39] : <func> <> <> <main>
+[info] : input key int
+[info] : input id a
+[info] : input ops ;
+[info] : total, loaded, ptr : 3 1 0
+[info] : str processing: <key int>  <id>  
+[info] : stage of dfa : para
+
+[info] : total, loaded, ptr : 2 1 0
+[info] : str processing: <para>  <ops ;>  
+[info] : stage of dfa : init
+
+int
+a
+[IR line 0] : <func> <> <> <getchar>
+[IR line 1] : <movzbl> <al> <> <eax>
+[IR line 2] : <call> <gcc_getchar> <> <>
+[IR line 3] : <leave> <> <> <>
+[IR line 4] : <ret> <> <> <>
+[IR line 5] : <func> <> <> <putchar>
+[IR line 6] : <init> <1> <> <1>
+[IR line 7] : <movb> <al> <> <1>
+[IR line 8] : <call> <gcc_putchar> <> <>
+[IR line 9] : <leave> <> <> <>
+[IR line 10] : <ret> <> <> <>
+[IR line 11] : <func> <> <> <add>
+[IR line 12] : <init> <4> <> <4>
+[IR line 13] : <movl> <eax> <> <4>
+[IR line 14] : <init> <4> <> <8>
+[IR line 15] : <movl> <ebx> <> <8>
+[IR line 16] : <movl> <4> <> <eax>
+[IR line 17] : <movl> <8> <> <ebx>
+[IR line 18] : <addl> <ebx> <eax> <eax>
+[IR line 19] : <movl> <eax> <> <4>
+[IR line 20] : <movl> <4> <> <eax>
+[IR line 21] : <leave> <> <> <>
+[IR line 22] : <ret> <> <> <>
+[IR line 23] : <func> <> <> <mul>
+[IR line 24] : <init> <4> <> <4>
+[IR line 25] : <movl> <eax> <> <4>
+[IR line 26] : <init> <4> <> <8>
+[IR line 27] : <movl> <ebx> <> <8>
+[IR line 28] : <movl> <4> <> <eax>
+[IR line 29] : <movl> <8> <> <ebx>
+[IR line 30] : <call> <add> <> <>
+[IR line 31] : <movl> <eax> <> <4>
+[IR line 32] : <movl> <4> <> <eax>
+[IR line 33] : <movl> <8> <> <ebx>
+[IR line 34] : <imull> <ebx> <> <eax>
+[IR line 35] : <movl> <eax> <> <4>
+[IR line 36] : <movl> <4> <> <eax>
+[IR line 37] : <leave> <> <> <>
+[IR line 38] : <ret> <> <> <>
+[IR line 39] : <func> <> <> <main>
+[IR line 40] : <init> <4> <> <4>
+[info] : input id a
+[info] : input ops =
+[info] : input num 3
+[info] : input ops ;
+[info] : total, loaded, ptr : 4 1 0
+[info] : str processing: <id>  <ops =>  
+[info] : stage of dfa : NOT DEFINE
+
+[info] : total, loaded, ptr : 4 2 1
+[info] : str processing: <ops =>  <num>  
+[info] : stage of dfa : INVALID
+
+[info] : total, loaded, ptr : 4 2 0
+[info] : str processing: <id>  <ops =>  <num>  
+[info] : stage of dfa : NOT DEFINE
+
+[info] : total, loaded, ptr : 4 3 2
+[info] : str processing: <num>  <ops ;>  
+[info] : stage of dfa : INVALID
+
+[info] : total, loaded, ptr : 4 3 1
+[info] : str processing: <ops =>  <num>  <ops ;>  
+[info] : stage of dfa : INVALID
+
+[info] : total, loaded, ptr : 4 3 0
+[info] : str processing: <id>  <ops =>  <num>  <ops ;>  
+[info] : stage of dfa : ass
+
+var
+num
+3
+unknow
+a
+[IR line 0] : <func> <> <> <getchar>
+[IR line 1] : <movzbl> <al> <> <eax>
+[IR line 2] : <call> <gcc_getchar> <> <>
+[IR line 3] : <leave> <> <> <>
+[IR line 4] : <ret> <> <> <>
+[IR line 5] : <func> <> <> <putchar>
+[IR line 6] : <init> <1> <> <1>
+[IR line 7] : <movb> <al> <> <1>
+[IR line 8] : <call> <gcc_putchar> <> <>
+[IR line 9] : <leave> <> <> <>
+[IR line 10] : <ret> <> <> <>
+[IR line 11] : <func> <> <> <add>
+[IR line 12] : <init> <4> <> <4>
+[IR line 13] : <movl> <eax> <> <4>
+[IR line 14] : <init> <4> <> <8>
+[IR line 15] : <movl> <ebx> <> <8>
+[IR line 16] : <movl> <4> <> <eax>
+[IR line 17] : <movl> <8> <> <ebx>
+[IR line 18] : <addl> <ebx> <eax> <eax>
+[IR line 19] : <movl> <eax> <> <4>
+[IR line 20] : <movl> <4> <> <eax>
+[IR line 21] : <leave> <> <> <>
+[IR line 22] : <ret> <> <> <>
+[IR line 23] : <func> <> <> <mul>
+[IR line 24] : <init> <4> <> <4>
+[IR line 25] : <movl> <eax> <> <4>
+[IR line 26] : <init> <4> <> <8>
+[IR line 27] : <movl> <ebx> <> <8>
+[IR line 28] : <movl> <4> <> <eax>
+[IR line 29] : <movl> <8> <> <ebx>
+[IR line 30] : <call> <add> <> <>
+[IR line 31] : <movl> <eax> <> <4>
+[IR line 32] : <movl> <4> <> <eax>
+[IR line 33] : <movl> <8> <> <ebx>
+[IR line 34] : <imull> <ebx> <> <eax>
+[IR line 35] : <movl> <eax> <> <4>
+[IR line 36] : <movl> <4> <> <eax>
+[IR line 37] : <leave> <> <> <>
+[IR line 38] : <ret> <> <> <>
+[IR line 39] : <func> <> <> <main>
+[IR line 40] : <init> <4> <> <4>
+[IR line 41] : <movl> <$3> <> <eax>
+[IR line 42] : <movl> <eax> <> <4>
+[info] : input key int
+[info] : input id b
+[info] : input ops ;
+[info] : total, loaded, ptr : 3 1 0
+[info] : str processing: <key int>  <id>  
+[info] : stage of dfa : para
+
+[info] : total, loaded, ptr : 2 1 0
+[info] : str processing: <para>  <ops ;>  
+[info] : stage of dfa : init
+
+int
+b
+[IR line 0] : <func> <> <> <getchar>
+[IR line 1] : <movzbl> <al> <> <eax>
+[IR line 2] : <call> <gcc_getchar> <> <>
+[IR line 3] : <leave> <> <> <>
+[IR line 4] : <ret> <> <> <>
+[IR line 5] : <func> <> <> <putchar>
+[IR line 6] : <init> <1> <> <1>
+[IR line 7] : <movb> <al> <> <1>
+[IR line 8] : <call> <gcc_putchar> <> <>
+[IR line 9] : <leave> <> <> <>
+[IR line 10] : <ret> <> <> <>
+[IR line 11] : <func> <> <> <add>
+[IR line 12] : <init> <4> <> <4>
+[IR line 13] : <movl> <eax> <> <4>
+[IR line 14] : <init> <4> <> <8>
+[IR line 15] : <movl> <ebx> <> <8>
+[IR line 16] : <movl> <4> <> <eax>
+[IR line 17] : <movl> <8> <> <ebx>
+[IR line 18] : <addl> <ebx> <eax> <eax>
+[IR line 19] : <movl> <eax> <> <4>
+[IR line 20] : <movl> <4> <> <eax>
+[IR line 21] : <leave> <> <> <>
+[IR line 22] : <ret> <> <> <>
+[IR line 23] : <func> <> <> <mul>
+[IR line 24] : <init> <4> <> <4>
+[IR line 25] : <movl> <eax> <> <4>
+[IR line 26] : <init> <4> <> <8>
+[IR line 27] : <movl> <ebx> <> <8>
+[IR line 28] : <movl> <4> <> <eax>
+[IR line 29] : <movl> <8> <> <ebx>
+[IR line 30] : <call> <add> <> <>
+[IR line 31] : <movl> <eax> <> <4>
+[IR line 32] : <movl> <4> <> <eax>
+[IR line 33] : <movl> <8> <> <ebx>
+[IR line 34] : <imull> <ebx> <> <eax>
+[IR line 35] : <movl> <eax> <> <4>
+[IR line 36] : <movl> <4> <> <eax>
+[IR line 37] : <leave> <> <> <>
+[IR line 38] : <ret> <> <> <>
+[IR line 39] : <func> <> <> <main>
+[IR line 40] : <init> <4> <> <4>
+[IR line 41] : <movl> <$3> <> <eax>
+[IR line 42] : <movl> <eax> <> <4>
+[IR line 43] : <init> <4> <> <8>
+[info] : input id b
+[info] : input ops =
+[info] : input num 7
+[info] : input ops ;
+[info] : total, loaded, ptr : 4 1 0
+[info] : str processing: <id>  <ops =>  
+[info] : stage of dfa : NOT DEFINE
+
+[info] : total, loaded, ptr : 4 2 1
+[info] : str processing: <ops =>  <num>  
+[info] : stage of dfa : INVALID
+
+[info] : total, loaded, ptr : 4 2 0
+[info] : str processing: <id>  <ops =>  <num>  
+[info] : stage of dfa : NOT DEFINE
+
+[info] : total, loaded, ptr : 4 3 2
+[info] : str processing: <num>  <ops ;>  
+[info] : stage of dfa : INVALID
+
+[info] : total, loaded, ptr : 4 3 1
+[info] : str processing: <ops =>  <num>  <ops ;>  
+[info] : stage of dfa : INVALID
+
+[info] : total, loaded, ptr : 4 3 0
+[info] : str processing: <id>  <ops =>  <num>  <ops ;>  
+[info] : stage of dfa : ass
+
+var
+num
+7
+unknow
+b
+[IR line 0] : <func> <> <> <getchar>
+[IR line 1] : <movzbl> <al> <> <eax>
+[IR line 2] : <call> <gcc_getchar> <> <>
+[IR line 3] : <leave> <> <> <>
+[IR line 4] : <ret> <> <> <>
+[IR line 5] : <func> <> <> <putchar>
+[IR line 6] : <init> <1> <> <1>
+[IR line 7] : <movb> <al> <> <1>
+[IR line 8] : <call> <gcc_putchar> <> <>
+[IR line 9] : <leave> <> <> <>
+[IR line 10] : <ret> <> <> <>
+[IR line 11] : <func> <> <> <add>
+[IR line 12] : <init> <4> <> <4>
+[IR line 13] : <movl> <eax> <> <4>
+[IR line 14] : <init> <4> <> <8>
+[IR line 15] : <movl> <ebx> <> <8>
+[IR line 16] : <movl> <4> <> <eax>
+[IR line 17] : <movl> <8> <> <ebx>
+[IR line 18] : <addl> <ebx> <eax> <eax>
+[IR line 19] : <movl> <eax> <> <4>
+[IR line 20] : <movl> <4> <> <eax>
+[IR line 21] : <leave> <> <> <>
+[IR line 22] : <ret> <> <> <>
+[IR line 23] : <func> <> <> <mul>
+[IR line 24] : <init> <4> <> <4>
+[IR line 25] : <movl> <eax> <> <4>
+[IR line 26] : <init> <4> <> <8>
+[IR line 27] : <movl> <ebx> <> <8>
+[IR line 28] : <movl> <4> <> <eax>
+[IR line 29] : <movl> <8> <> <ebx>
+[IR line 30] : <call> <add> <> <>
+[IR line 31] : <movl> <eax> <> <4>
+[IR line 32] : <movl> <4> <> <eax>
+[IR line 33] : <movl> <8> <> <ebx>
+[IR line 34] : <imull> <ebx> <> <eax>
+[IR line 35] : <movl> <eax> <> <4>
+[IR line 36] : <movl> <4> <> <eax>
+[IR line 37] : <leave> <> <> <>
+[IR line 38] : <ret> <> <> <>
+[IR line 39] : <func> <> <> <main>
+[IR line 40] : <init> <4> <> <4>
+[IR line 41] : <movl> <$3> <> <eax>
+[IR line 42] : <movl> <eax> <> <4>
+[IR line 43] : <init> <4> <> <8>
+[IR line 44] : <movl> <$7> <> <eax>
+[IR line 45] : <movl> <eax> <> <8>
+[info] : input id a
+[info] : input ops =
+[info] : input id mul
+[info] : input ops (
+[info] : input id a
+[info] : input ops ,
+[info] : input id b
+[info] : input ops )
+[info] : input ops ;
+[info] : total, loaded, ptr : 9 1 0
+[info] : str processing: <id>  <ops =>  
+[info] : stage of dfa : NOT DEFINE
+
+[info] : total, loaded, ptr : 9 2 1
+[info] : str processing: <ops =>  <id>  
+[info] : stage of dfa : INVALID
+
+[info] : total, loaded, ptr : 9 2 0
+[info] : str processing: <id>  <ops =>  <id>  
+[info] : stage of dfa : NOT DEFINE
+
+[info] : total, loaded, ptr : 9 3 2
+[info] : str processing: <id>  <ops (>  
+[info] : stage of dfa : NOT DEFINE
+
+[info] : total, loaded, ptr : 9 3 1
+[info] : str processing: <ops =>  <id>  <ops (>  
+[info] : stage of dfa : INVALID
+
+[info] : total, loaded, ptr : 9 3 0
+[info] : str processing: <id>  <ops =>  <id>  <ops (>  
+[info] : stage of dfa : INVALID
+
+[info] : total, loaded, ptr : 9 4 3
+[info] : str processing: <ops (>  <id>  
+[info] : stage of dfa : INVALID
+
+[info] : total, loaded, ptr : 9 4 2
+[info] : str processing: <id>  <ops (>  <id>  
+[info] : stage of dfa : NOT DEFINE
+
+[info] : total, loaded, ptr : 9 4 1
+[info] : str processing: <ops =>  <id>  <ops (>  <id>  
+[info] : stage of dfa : INVALID
+
+[info] : total, loaded, ptr : 9 4 0
+[info] : str processing: <id>  <ops =>  <id>  <ops (>  <id>  
+[info] : stage of dfa : INVALID
+
+[info] : total, loaded, ptr : 9 5 4
+[info] : str processing: <id>  <ops ,>  
+[info] : stage of dfa : NOT DEFINE
+
+[info] : total, loaded, ptr : 9 5 3
+[info] : str processing: <ops (>  <id>  <ops ,>  
+[info] : stage of dfa : INVALID
+
+[info] : total, loaded, ptr : 9 5 2
+[info] : str processing: <id>  <ops (>  <id>  <ops ,>  
+[info] : stage of dfa : INVALID
+
+[info] : total, loaded, ptr : 9 5 1
+[info] : str processing: <ops =>  <id>  <ops (>  <id>  <ops ,>  
+[info] : stage of dfa : INVALID
+
+[info] : total, loaded, ptr : 9 5 0
+[info] : str processing: <id>  <ops =>  <id>  <ops (>  <id>  <ops ,>  
+[info] : stage of dfa : INVALID
+
+[info] : total, loaded, ptr : 9 6 5
+[info] : str processing: <ops ,>  <id>  
+[info] : stage of dfa : INVALID
+
+[info] : total, loaded, ptr : 9 6 4
+[info] : str processing: <id>  <ops ,>  <id>  
+[info] : stage of dfa : ids
+
+[info] : total, loaded, ptr : 7 4 3
+[info] : str processing: <ops (>  <ids>  
+[info] : stage of dfa : INVALID
+
+[info] : total, loaded, ptr : 7 4 2
+[info] : str processing: <id>  <ops (>  <ids>  
+[info] : stage of dfa : NOT DEFINE
+
+[info] : total, loaded, ptr : 7 4 1
+[info] : str processing: <ops =>  <id>  <ops (>  <ids>  
+[info] : stage of dfa : INVALID
+
+[info] : total, loaded, ptr : 7 4 0
+[info] : str processing: <id>  <ops =>  <id>  <ops (>  <ids>  
+[info] : stage of dfa : INVALID
+
+[info] : total, loaded, ptr : 7 5 4
+[info] : str processing: <ids>  <ops )>  
+[info] : stage of dfa : INVALID
+
+[info] : total, loaded, ptr : 7 5 3
+[info] : str processing: <ops (>  <ids>  <ops )>  
+[info] : stage of dfa : INVALID
+
+[info] : total, loaded, ptr : 7 5 2
+[info] : str processing: <id>  <ops (>  <ids>  <ops )>  
+[info] : stage of dfa : NOT DEFINE
+
+[info] : total, loaded, ptr : 7 5 1
+[info] : str processing: <ops =>  <id>  <ops (>  <ids>  <ops )>  
+[info] : stage of dfa : INVALID
+
+[info] : total, loaded, ptr : 7 5 0
+[info] : str processing: <id>  <ops =>  <id>  <ops (>  <ids>  <ops )>  
+[info] : stage of dfa : INVALID
+
+[info] : total, loaded, ptr : 7 6 5
+[info] : str processing: <ops )>  <ops ;>  
+[info] : stage of dfa : INVALID
+
+[info] : total, loaded, ptr : 7 6 4
+[info] : str processing: <ids>  <ops )>  <ops ;>  
+[info] : stage of dfa : INVALID
+
+[info] : total, loaded, ptr : 7 6 3
+[info] : str processing: <ops (>  <ids>  <ops )>  <ops ;>  
+[info] : stage of dfa : INVALID
+
+[info] : total, loaded, ptr : 7 6 2
+[info] : str processing: <id>  <ops (>  <ids>  <ops )>  <ops ;>  
+[info] : stage of dfa : call_func
+
+[info] : total, loaded, ptr : 3 2 1
+[info] : str processing: <ops =>  <call_func>  
+[info] : stage of dfa : INVALID
+
+[info] : total, loaded, ptr : 3 2 0
+[info] : str processing: <id>  <ops =>  <call_func>  
+[info] : stage of dfa : ass
+
+call_func
+unknow
+mul
+unknow
+a
+unknow
+b
+unknow
+a
+[IR line 0] : <func> <> <> <getchar>
+[IR line 1] : <movzbl> <al> <> <eax>
+[IR line 2] : <call> <gcc_getchar> <> <>
+[IR line 3] : <leave> <> <> <>
+[IR line 4] : <ret> <> <> <>
+[IR line 5] : <func> <> <> <putchar>
+[IR line 6] : <init> <1> <> <1>
+[IR line 7] : <movb> <al> <> <1>
+[IR line 8] : <call> <gcc_putchar> <> <>
+[IR line 9] : <leave> <> <> <>
+[IR line 10] : <ret> <> <> <>
+[IR line 11] : <func> <> <> <add>
+[IR line 12] : <init> <4> <> <4>
+[IR line 13] : <movl> <eax> <> <4>
+[IR line 14] : <init> <4> <> <8>
+[IR line 15] : <movl> <ebx> <> <8>
+[IR line 16] : <movl> <4> <> <eax>
+[IR line 17] : <movl> <8> <> <ebx>
+[IR line 18] : <addl> <ebx> <eax> <eax>
+[IR line 19] : <movl> <eax> <> <4>
+[IR line 20] : <movl> <4> <> <eax>
+[IR line 21] : <leave> <> <> <>
+[IR line 22] : <ret> <> <> <>
+[IR line 23] : <func> <> <> <mul>
+[IR line 24] : <init> <4> <> <4>
+[IR line 25] : <movl> <eax> <> <4>
+[IR line 26] : <init> <4> <> <8>
+[IR line 27] : <movl> <ebx> <> <8>
+[IR line 28] : <movl> <4> <> <eax>
+[IR line 29] : <movl> <8> <> <ebx>
+[IR line 30] : <call> <add> <> <>
+[IR line 31] : <movl> <eax> <> <4>
+[IR line 32] : <movl> <4> <> <eax>
+[IR line 33] : <movl> <8> <> <ebx>
+[IR line 34] : <imull> <ebx> <> <eax>
+[IR line 35] : <movl> <eax> <> <4>
+[IR line 36] : <movl> <4> <> <eax>
+[IR line 37] : <leave> <> <> <>
+[IR line 38] : <ret> <> <> <>
+[IR line 39] : <func> <> <> <main>
+[IR line 40] : <init> <4> <> <4>
+[IR line 41] : <movl> <$3> <> <eax>
+[IR line 42] : <movl> <eax> <> <4>
+[IR line 43] : <init> <4> <> <8>
+[IR line 44] : <movl> <$7> <> <eax>
+[IR line 45] : <movl> <eax> <> <8>
+[IR line 46] : <movl> <4> <> <eax>
+[IR line 47] : <movl> <8> <> <ebx>
+[IR line 48] : <call> <mul> <> <>
+[IR line 49] : <movl> <eax> <> <4>
+[info] : input id putchar
+[info] : input ops (
+[info] : input id a
+[info] : input ops )
+[info] : input ops ;
+[info] : total, loaded, ptr : 5 1 0
+[info] : str processing: <id>  <ops (>  
+[info] : stage of dfa : NOT DEFINE
+
+[info] : total, loaded, ptr : 5 2 1
+[info] : str processing: <ops (>  <id>  
+[info] : stage of dfa : INVALID
+
+[info] : total, loaded, ptr : 5 2 0
+[info] : str processing: <id>  <ops (>  <id>  
+[info] : stage of dfa : NOT DEFINE
+
+[info] : total, loaded, ptr : 5 3 2
+[info] : str processing: <id>  <ops )>  
+[info] : stage of dfa : INVALID
+
+[info] : total, loaded, ptr : 5 3 1
+[info] : str processing: <ops (>  <id>  <ops )>  
+[info] : stage of dfa : INVALID
+
+[info] : total, loaded, ptr : 5 3 0
+[info] : str processing: <id>  <ops (>  <id>  <ops )>  
+[info] : stage of dfa : NOT DEFINE
+
+[info] : total, loaded, ptr : 5 4 3
+[info] : str processing: <ops )>  <ops ;>  
+[info] : stage of dfa : INVALID
+
+[info] : total, loaded, ptr : 5 4 2
+[info] : str processing: <id>  <ops )>  <ops ;>  
+[info] : stage of dfa : INVALID
+
+[info] : total, loaded, ptr : 5 4 1
+[info] : str processing: <ops (>  <id>  <ops )>  <ops ;>  
+[info] : stage of dfa : INVALID
+
+[info] : total, loaded, ptr : 5 4 0
+[info] : str processing: <id>  <ops (>  <id>  <ops )>  <ops ;>  
+[info] : stage of dfa : call_func
+
+unknow
+putchar
+unknow
+a
+[IR line 0] : <func> <> <> <getchar>
+[IR line 1] : <movzbl> <al> <> <eax>
+[IR line 2] : <call> <gcc_getchar> <> <>
+[IR line 3] : <leave> <> <> <>
+[IR line 4] : <ret> <> <> <>
+[IR line 5] : <func> <> <> <putchar>
+[IR line 6] : <init> <1> <> <1>
+[IR line 7] : <movb> <al> <> <1>
+[IR line 8] : <call> <gcc_putchar> <> <>
+[IR line 9] : <leave> <> <> <>
+[IR line 10] : <ret> <> <> <>
+[IR line 11] : <func> <> <> <add>
+[IR line 12] : <init> <4> <> <4>
+[IR line 13] : <movl> <eax> <> <4>
+[IR line 14] : <init> <4> <> <8>
+[IR line 15] : <movl> <ebx> <> <8>
+[IR line 16] : <movl> <4> <> <eax>
+[IR line 17] : <movl> <8> <> <ebx>
+[IR line 18] : <addl> <ebx> <eax> <eax>
+[IR line 19] : <movl> <eax> <> <4>
+[IR line 20] : <movl> <4> <> <eax>
+[IR line 21] : <leave> <> <> <>
+[IR line 22] : <ret> <> <> <>
+[IR line 23] : <func> <> <> <mul>
+[IR line 24] : <init> <4> <> <4>
+[IR line 25] : <movl> <eax> <> <4>
+[IR line 26] : <init> <4> <> <8>
+[IR line 27] : <movl> <ebx> <> <8>
+[IR line 28] : <movl> <4> <> <eax>
+[IR line 29] : <movl> <8> <> <ebx>
+[IR line 30] : <call> <add> <> <>
+[IR line 31] : <movl> <eax> <> <4>
+[IR line 32] : <movl> <4> <> <eax>
+[IR line 33] : <movl> <8> <> <ebx>
+[IR line 34] : <imull> <ebx> <> <eax>
+[IR line 35] : <movl> <eax> <> <4>
+[IR line 36] : <movl> <4> <> <eax>
+[IR line 37] : <leave> <> <> <>
+[IR line 38] : <ret> <> <> <>
+[IR line 39] : <func> <> <> <main>
+[IR line 40] : <init> <4> <> <4>
+[IR line 41] : <movl> <$3> <> <eax>
+[IR line 42] : <movl> <eax> <> <4>
+[IR line 43] : <init> <4> <> <8>
+[IR line 44] : <movl> <$7> <> <eax>
+[IR line 45] : <movl> <eax> <> <8>
+[IR line 46] : <movl> <4> <> <eax>
+[IR line 47] : <movl> <8> <> <ebx>
+[IR line 48] : <call> <mul> <> <>
+[IR line 49] : <movl> <eax> <> <4>
+[IR line 50] : <movl> <4> <> <eax>
+[IR line 51] : <call> <putchar> <> <>
+[info] : input key char
+[info] : input id c
+[info] : input ops ;
+[info] : total, loaded, ptr : 3 1 0
+[info] : str processing: <key char>  <id>  
+[info] : stage of dfa : para
+
+[info] : total, loaded, ptr : 2 1 0
+[info] : str processing: <para>  <ops ;>  
+[info] : stage of dfa : init
+
+char
+c
+[IR line 0] : <func> <> <> <getchar>
+[IR line 1] : <movzbl> <al> <> <eax>
+[IR line 2] : <call> <gcc_getchar> <> <>
+[IR line 3] : <leave> <> <> <>
+[IR line 4] : <ret> <> <> <>
+[IR line 5] : <func> <> <> <putchar>
+[IR line 6] : <init> <1> <> <1>
+[IR line 7] : <movb> <al> <> <1>
+[IR line 8] : <call> <gcc_putchar> <> <>
+[IR line 9] : <leave> <> <> <>
+[IR line 10] : <ret> <> <> <>
+[IR line 11] : <func> <> <> <add>
+[IR line 12] : <init> <4> <> <4>
+[IR line 13] : <movl> <eax> <> <4>
+[IR line 14] : <init> <4> <> <8>
+[IR line 15] : <movl> <ebx> <> <8>
+[IR line 16] : <movl> <4> <> <eax>
+[IR line 17] : <movl> <8> <> <ebx>
+[IR line 18] : <addl> <ebx> <eax> <eax>
+[IR line 19] : <movl> <eax> <> <4>
+[IR line 20] : <movl> <4> <> <eax>
+[IR line 21] : <leave> <> <> <>
+[IR line 22] : <ret> <> <> <>
+[IR line 23] : <func> <> <> <mul>
+[IR line 24] : <init> <4> <> <4>
+[IR line 25] : <movl> <eax> <> <4>
+[IR line 26] : <init> <4> <> <8>
+[IR line 27] : <movl> <ebx> <> <8>
+[IR line 28] : <movl> <4> <> <eax>
+[IR line 29] : <movl> <8> <> <ebx>
+[IR line 30] : <call> <add> <> <>
+[IR line 31] : <movl> <eax> <> <4>
+[IR line 32] : <movl> <4> <> <eax>
+[IR line 33] : <movl> <8> <> <ebx>
+[IR line 34] : <imull> <ebx> <> <eax>
+[IR line 35] : <movl> <eax> <> <4>
+[IR line 36] : <movl> <4> <> <eax>
+[IR line 37] : <leave> <> <> <>
+[IR line 38] : <ret> <> <> <>
+[IR line 39] : <func> <> <> <main>
+[IR line 40] : <init> <4> <> <4>
+[IR line 41] : <movl> <$3> <> <eax>
+[IR line 42] : <movl> <eax> <> <4>
+[IR line 43] : <init> <4> <> <8>
+[IR line 44] : <movl> <$7> <> <eax>
+[IR line 45] : <movl> <eax> <> <8>
+[IR line 46] : <movl> <4> <> <eax>
+[IR line 47] : <movl> <8> <> <ebx>
+[IR line 48] : <call> <mul> <> <>
+[IR line 49] : <movl> <eax> <> <4>
+[IR line 50] : <movl> <4> <> <eax>
+[IR line 51] : <call> <putchar> <> <>
+[IR line 52] : <init> <1> <> <9>
+[info] : input id c
+[info] : input ops =
+[info] : input character 'a'
+[info] : input ops ;
+[info] : total, loaded, ptr : 4 1 0
+[info] : str processing: <id>  <ops =>  
+[info] : stage of dfa : NOT DEFINE
+
+[info] : total, loaded, ptr : 4 2 1
+[info] : str processing: <ops =>  <character>  
+[info] : stage of dfa : INVALID
+
+[info] : total, loaded, ptr : 4 2 0
+[info] : str processing: <id>  <ops =>  <character>  
+[info] : stage of dfa : NOT DEFINE
+
+[info] : total, loaded, ptr : 4 3 2
+[info] : str processing: <character>  <ops ;>  
+[info] : stage of dfa : INVALID
+
+[info] : total, loaded, ptr : 4 3 1
+[info] : str processing: <ops =>  <character>  <ops ;>  
+[info] : stage of dfa : INVALID
+
+[info] : total, loaded, ptr : 4 3 0
+[info] : str processing: <id>  <ops =>  <character>  <ops ;>  
+[info] : stage of dfa : ass
+
+var
+character
+a
+unknow
+c
+[IR line 0] : <func> <> <> <getchar>
+[IR line 1] : <movzbl> <al> <> <eax>
+[IR line 2] : <call> <gcc_getchar> <> <>
+[IR line 3] : <leave> <> <> <>
+[IR line 4] : <ret> <> <> <>
+[IR line 5] : <func> <> <> <putchar>
+[IR line 6] : <init> <1> <> <1>
+[IR line 7] : <movb> <al> <> <1>
+[IR line 8] : <call> <gcc_putchar> <> <>
+[IR line 9] : <leave> <> <> <>
+[IR line 10] : <ret> <> <> <>
+[IR line 11] : <func> <> <> <add>
+[IR line 12] : <init> <4> <> <4>
+[IR line 13] : <movl> <eax> <> <4>
+[IR line 14] : <init> <4> <> <8>
+[IR line 15] : <movl> <ebx> <> <8>
+[IR line 16] : <movl> <4> <> <eax>
+[IR line 17] : <movl> <8> <> <ebx>
+[IR line 18] : <addl> <ebx> <eax> <eax>
+[IR line 19] : <movl> <eax> <> <4>
+[IR line 20] : <movl> <4> <> <eax>
+[IR line 21] : <leave> <> <> <>
+[IR line 22] : <ret> <> <> <>
+[IR line 23] : <func> <> <> <mul>
+[IR line 24] : <init> <4> <> <4>
+[IR line 25] : <movl> <eax> <> <4>
+[IR line 26] : <init> <4> <> <8>
+[IR line 27] : <movl> <ebx> <> <8>
+[IR line 28] : <movl> <4> <> <eax>
+[IR line 29] : <movl> <8> <> <ebx>
+[IR line 30] : <call> <add> <> <>
+[IR line 31] : <movl> <eax> <> <4>
+[IR line 32] : <movl> <4> <> <eax>
+[IR line 33] : <movl> <8> <> <ebx>
+[IR line 34] : <imull> <ebx> <> <eax>
+[IR line 35] : <movl> <eax> <> <4>
+[IR line 36] : <movl> <4> <> <eax>
+[IR line 37] : <leave> <> <> <>
+[IR line 38] : <ret> <> <> <>
+[IR line 39] : <func> <> <> <main>
+[IR line 40] : <init> <4> <> <4>
+[IR line 41] : <movl> <$3> <> <eax>
+[IR line 42] : <movl> <eax> <> <4>
+[IR line 43] : <init> <4> <> <8>
+[IR line 44] : <movl> <$7> <> <eax>
+[IR line 45] : <movl> <eax> <> <8>
+[IR line 46] : <movl> <4> <> <eax>
+[IR line 47] : <movl> <8> <> <ebx>
+[IR line 48] : <call> <mul> <> <>
+[IR line 49] : <movl> <eax> <> <4>
+[IR line 50] : <movl> <4> <> <eax>
+[IR line 51] : <call> <putchar> <> <>
+[IR line 52] : <init> <1> <> <9>
+[IR line 53] : <movl> <$97> <> <eax>
+[IR line 54] : <movb> <al> <> <9>
+[info] : input ops {
+[info] : input key char
+[info] : input id c
+[info] : input ops ;
+[info] : total, loaded, ptr : 3 1 0
+[info] : str processing: <key char>  <id>  
+[info] : stage of dfa : para
+
+[info] : total, loaded, ptr : 2 1 0
+[info] : str processing: <para>  <ops ;>  
+[info] : stage of dfa : init
+
+char
+c
+[IR line 0] : <func> <> <> <getchar>
+[IR line 1] : <movzbl> <al> <> <eax>
+[IR line 2] : <call> <gcc_getchar> <> <>
+[IR line 3] : <leave> <> <> <>
+[IR line 4] : <ret> <> <> <>
+[IR line 5] : <func> <> <> <putchar>
+[IR line 6] : <init> <1> <> <1>
+[IR line 7] : <movb> <al> <> <1>
+[IR line 8] : <call> <gcc_putchar> <> <>
+[IR line 9] : <leave> <> <> <>
+[IR line 10] : <ret> <> <> <>
+[IR line 11] : <func> <> <> <add>
+[IR line 12] : <init> <4> <> <4>
+[IR line 13] : <movl> <eax> <> <4>
+[IR line 14] : <init> <4> <> <8>
+[IR line 15] : <movl> <ebx> <> <8>
+[IR line 16] : <movl> <4> <> <eax>
+[IR line 17] : <movl> <8> <> <ebx>
+[IR line 18] : <addl> <ebx> <eax> <eax>
+[IR line 19] : <movl> <eax> <> <4>
+[IR line 20] : <movl> <4> <> <eax>
+[IR line 21] : <leave> <> <> <>
+[IR line 22] : <ret> <> <> <>
+[IR line 23] : <func> <> <> <mul>
+[IR line 24] : <init> <4> <> <4>
+[IR line 25] : <movl> <eax> <> <4>
+[IR line 26] : <init> <4> <> <8>
+[IR line 27] : <movl> <ebx> <> <8>
+[IR line 28] : <movl> <4> <> <eax>
+[IR line 29] : <movl> <8> <> <ebx>
+[IR line 30] : <call> <add> <> <>
+[IR line 31] : <movl> <eax> <> <4>
+[IR line 32] : <movl> <4> <> <eax>
+[IR line 33] : <movl> <8> <> <ebx>
+[IR line 34] : <imull> <ebx> <> <eax>
+[IR line 35] : <movl> <eax> <> <4>
+[IR line 36] : <movl> <4> <> <eax>
+[IR line 37] : <leave> <> <> <>
+[IR line 38] : <ret> <> <> <>
+[IR line 39] : <func> <> <> <main>
+[IR line 40] : <init> <4> <> <4>
+[IR line 41] : <movl> <$3> <> <eax>
+[IR line 42] : <movl> <eax> <> <4>
+[IR line 43] : <init> <4> <> <8>
+[IR line 44] : <movl> <$7> <> <eax>
+[IR line 45] : <movl> <eax> <> <8>
+[IR line 46] : <movl> <4> <> <eax>
+[IR line 47] : <movl> <8> <> <ebx>
+[IR line 48] : <call> <mul> <> <>
+[IR line 49] : <movl> <eax> <> <4>
+[IR line 50] : <movl> <4> <> <eax>
+[IR line 51] : <call> <putchar> <> <>
+[IR line 52] : <init> <1> <> <9>
+[IR line 53] : <movl> <$97> <> <eax>
+[IR line 54] : <movb> <al> <> <9>
+[IR line 55] : <init> <1> <> <10>
+[info] : input id c
+[info] : input ops =
+[info] : input character 'A'
+[info] : input ops ;
+[info] : total, loaded, ptr : 4 1 0
+[info] : str processing: <id>  <ops =>  
+[info] : stage of dfa : NOT DEFINE
+
+[info] : total, loaded, ptr : 4 2 1
+[info] : str processing: <ops =>  <character>  
+[info] : stage of dfa : INVALID
+
+[info] : total, loaded, ptr : 4 2 0
+[info] : str processing: <id>  <ops =>  <character>  
+[info] : stage of dfa : NOT DEFINE
+
+[info] : total, loaded, ptr : 4 3 2
+[info] : str processing: <character>  <ops ;>  
+[info] : stage of dfa : INVALID
+
+[info] : total, loaded, ptr : 4 3 1
+[info] : str processing: <ops =>  <character>  <ops ;>  
+[info] : stage of dfa : INVALID
+
+[info] : total, loaded, ptr : 4 3 0
+[info] : str processing: <id>  <ops =>  <character>  <ops ;>  
+[info] : stage of dfa : ass
+
+var
+character
+A
+unknow
+c
+[IR line 0] : <func> <> <> <getchar>
+[IR line 1] : <movzbl> <al> <> <eax>
+[IR line 2] : <call> <gcc_getchar> <> <>
+[IR line 3] : <leave> <> <> <>
+[IR line 4] : <ret> <> <> <>
+[IR line 5] : <func> <> <> <putchar>
+[IR line 6] : <init> <1> <> <1>
+[IR line 7] : <movb> <al> <> <1>
+[IR line 8] : <call> <gcc_putchar> <> <>
+[IR line 9] : <leave> <> <> <>
+[IR line 10] : <ret> <> <> <>
+[IR line 11] : <func> <> <> <add>
+[IR line 12] : <init> <4> <> <4>
+[IR line 13] : <movl> <eax> <> <4>
+[IR line 14] : <init> <4> <> <8>
+[IR line 15] : <movl> <ebx> <> <8>
+[IR line 16] : <movl> <4> <> <eax>
+[IR line 17] : <movl> <8> <> <ebx>
+[IR line 18] : <addl> <ebx> <eax> <eax>
+[IR line 19] : <movl> <eax> <> <4>
+[IR line 20] : <movl> <4> <> <eax>
+[IR line 21] : <leave> <> <> <>
+[IR line 22] : <ret> <> <> <>
+[IR line 23] : <func> <> <> <mul>
+[IR line 24] : <init> <4> <> <4>
+[IR line 25] : <movl> <eax> <> <4>
+[IR line 26] : <init> <4> <> <8>
+[IR line 27] : <movl> <ebx> <> <8>
+[IR line 28] : <movl> <4> <> <eax>
+[IR line 29] : <movl> <8> <> <ebx>
+[IR line 30] : <call> <add> <> <>
+[IR line 31] : <movl> <eax> <> <4>
+[IR line 32] : <movl> <4> <> <eax>
+[IR line 33] : <movl> <8> <> <ebx>
+[IR line 34] : <imull> <ebx> <> <eax>
+[IR line 35] : <movl> <eax> <> <4>
+[IR line 36] : <movl> <4> <> <eax>
+[IR line 37] : <leave> <> <> <>
+[IR line 38] : <ret> <> <> <>
+[IR line 39] : <func> <> <> <main>
+[IR line 40] : <init> <4> <> <4>
+[IR line 41] : <movl> <$3> <> <eax>
+[IR line 42] : <movl> <eax> <> <4>
+[IR line 43] : <init> <4> <> <8>
+[IR line 44] : <movl> <$7> <> <eax>
+[IR line 45] : <movl> <eax> <> <8>
+[IR line 46] : <movl> <4> <> <eax>
+[IR line 47] : <movl> <8> <> <ebx>
+[IR line 48] : <call> <mul> <> <>
+[IR line 49] : <movl> <eax> <> <4>
+[IR line 50] : <movl> <4> <> <eax>
+[IR line 51] : <call> <putchar> <> <>
+[IR line 52] : <init> <1> <> <9>
+[IR line 53] : <movl> <$97> <> <eax>
+[IR line 54] : <movb> <al> <> <9>
+[IR line 55] : <init> <1> <> <10>
+[IR line 56] : <movl> <$65> <> <eax>
+[IR line 57] : <movb> <al> <> <10>
+[info] : input id putchar
+[info] : input ops (
+[info] : input id c
+[info] : input ops )
+[info] : input ops ;
+[info] : total, loaded, ptr : 5 1 0
+[info] : str processing: <id>  <ops (>  
+[info] : stage of dfa : NOT DEFINE
+
+[info] : total, loaded, ptr : 5 2 1
+[info] : str processing: <ops (>  <id>  
+[info] : stage of dfa : INVALID
+
+[info] : total, loaded, ptr : 5 2 0
+[info] : str processing: <id>  <ops (>  <id>  
+[info] : stage of dfa : NOT DEFINE
+
+[info] : total, loaded, ptr : 5 3 2
+[info] : str processing: <id>  <ops )>  
+[info] : stage of dfa : INVALID
+
+[info] : total, loaded, ptr : 5 3 1
+[info] : str processing: <ops (>  <id>  <ops )>  
+[info] : stage of dfa : INVALID
+
+[info] : total, loaded, ptr : 5 3 0
+[info] : str processing: <id>  <ops (>  <id>  <ops )>  
+[info] : stage of dfa : NOT DEFINE
+
+[info] : total, loaded, ptr : 5 4 3
+[info] : str processing: <ops )>  <ops ;>  
+[info] : stage of dfa : INVALID
+
+[info] : total, loaded, ptr : 5 4 2
+[info] : str processing: <id>  <ops )>  <ops ;>  
+[info] : stage of dfa : INVALID
+
+[info] : total, loaded, ptr : 5 4 1
+[info] : str processing: <ops (>  <id>  <ops )>  <ops ;>  
+[info] : stage of dfa : INVALID
+
+[info] : total, loaded, ptr : 5 4 0
+[info] : str processing: <id>  <ops (>  <id>  <ops )>  <ops ;>  
+[info] : stage of dfa : call_func
+
+unknow
+putchar
+unknow
+c
+[IR line 0] : <func> <> <> <getchar>
+[IR line 1] : <movzbl> <al> <> <eax>
+[IR line 2] : <call> <gcc_getchar> <> <>
+[IR line 3] : <leave> <> <> <>
+[IR line 4] : <ret> <> <> <>
+[IR line 5] : <func> <> <> <putchar>
+[IR line 6] : <init> <1> <> <1>
+[IR line 7] : <movb> <al> <> <1>
+[IR line 8] : <call> <gcc_putchar> <> <>
+[IR line 9] : <leave> <> <> <>
+[IR line 10] : <ret> <> <> <>
+[IR line 11] : <func> <> <> <add>
+[IR line 12] : <init> <4> <> <4>
+[IR line 13] : <movl> <eax> <> <4>
+[IR line 14] : <init> <4> <> <8>
+[IR line 15] : <movl> <ebx> <> <8>
+[IR line 16] : <movl> <4> <> <eax>
+[IR line 17] : <movl> <8> <> <ebx>
+[IR line 18] : <addl> <ebx> <eax> <eax>
+[IR line 19] : <movl> <eax> <> <4>
+[IR line 20] : <movl> <4> <> <eax>
+[IR line 21] : <leave> <> <> <>
+[IR line 22] : <ret> <> <> <>
+[IR line 23] : <func> <> <> <mul>
+[IR line 24] : <init> <4> <> <4>
+[IR line 25] : <movl> <eax> <> <4>
+[IR line 26] : <init> <4> <> <8>
+[IR line 27] : <movl> <ebx> <> <8>
+[IR line 28] : <movl> <4> <> <eax>
+[IR line 29] : <movl> <8> <> <ebx>
+[IR line 30] : <call> <add> <> <>
+[IR line 31] : <movl> <eax> <> <4>
+[IR line 32] : <movl> <4> <> <eax>
+[IR line 33] : <movl> <8> <> <ebx>
+[IR line 34] : <imull> <ebx> <> <eax>
+[IR line 35] : <movl> <eax> <> <4>
+[IR line 36] : <movl> <4> <> <eax>
+[IR line 37] : <leave> <> <> <>
+[IR line 38] : <ret> <> <> <>
+[IR line 39] : <func> <> <> <main>
+[IR line 40] : <init> <4> <> <4>
+[IR line 41] : <movl> <$3> <> <eax>
+[IR line 42] : <movl> <eax> <> <4>
+[IR line 43] : <init> <4> <> <8>
+[IR line 44] : <movl> <$7> <> <eax>
+[IR line 45] : <movl> <eax> <> <8>
+[IR line 46] : <movl> <4> <> <eax>
+[IR line 47] : <movl> <8> <> <ebx>
+[IR line 48] : <call> <mul> <> <>
+[IR line 49] : <movl> <eax> <> <4>
+[IR line 50] : <movl> <4> <> <eax>
+[IR line 51] : <call> <putchar> <> <>
+[IR line 52] : <init> <1> <> <9>
+[IR line 53] : <movl> <$97> <> <eax>
+[IR line 54] : <movb> <al> <> <9>
+[IR line 55] : <init> <1> <> <10>
+[IR line 56] : <movl> <$65> <> <eax>
+[IR line 57] : <movb> <al> <> <10>
+[IR line 58] : <movzbl> <10> <> <eax>
+[IR line 59] : <call> <putchar> <> <>
+[info] : input ops }
+[info] : input id putchar
+[info] : input ops (
+[info] : input id c
+[info] : input ops )
+[info] : input ops ;
+[info] : total, loaded, ptr : 5 1 0
+[info] : str processing: <id>  <ops (>  
+[info] : stage of dfa : NOT DEFINE
+
+[info] : total, loaded, ptr : 5 2 1
+[info] : str processing: <ops (>  <id>  
+[info] : stage of dfa : INVALID
+
+[info] : total, loaded, ptr : 5 2 0
+[info] : str processing: <id>  <ops (>  <id>  
+[info] : stage of dfa : NOT DEFINE
+
+[info] : total, loaded, ptr : 5 3 2
+[info] : str processing: <id>  <ops )>  
+[info] : stage of dfa : INVALID
+
+[info] : total, loaded, ptr : 5 3 1
+[info] : str processing: <ops (>  <id>  <ops )>  
+[info] : stage of dfa : INVALID
+
+[info] : total, loaded, ptr : 5 3 0
+[info] : str processing: <id>  <ops (>  <id>  <ops )>  
+[info] : stage of dfa : NOT DEFINE
+
+[info] : total, loaded, ptr : 5 4 3
+[info] : str processing: <ops )>  <ops ;>  
+[info] : stage of dfa : INVALID
+
+[info] : total, loaded, ptr : 5 4 2
+[info] : str processing: <id>  <ops )>  <ops ;>  
+[info] : stage of dfa : INVALID
+
+[info] : total, loaded, ptr : 5 4 1
+[info] : str processing: <ops (>  <id>  <ops )>  <ops ;>  
+[info] : stage of dfa : INVALID
+
+[info] : total, loaded, ptr : 5 4 0
+[info] : str processing: <id>  <ops (>  <id>  <ops )>  <ops ;>  
+[info] : stage of dfa : call_func
+
+unknow
+putchar
+unknow
+c
+[IR line 0] : <func> <> <> <getchar>
+[IR line 1] : <movzbl> <al> <> <eax>
+[IR line 2] : <call> <gcc_getchar> <> <>
+[IR line 3] : <leave> <> <> <>
+[IR line 4] : <ret> <> <> <>
+[IR line 5] : <func> <> <> <putchar>
+[IR line 6] : <init> <1> <> <1>
+[IR line 7] : <movb> <al> <> <1>
+[IR line 8] : <call> <gcc_putchar> <> <>
+[IR line 9] : <leave> <> <> <>
+[IR line 10] : <ret> <> <> <>
+[IR line 11] : <func> <> <> <add>
+[IR line 12] : <init> <4> <> <4>
+[IR line 13] : <movl> <eax> <> <4>
+[IR line 14] : <init> <4> <> <8>
+[IR line 15] : <movl> <ebx> <> <8>
+[IR line 16] : <movl> <4> <> <eax>
+[IR line 17] : <movl> <8> <> <ebx>
+[IR line 18] : <addl> <ebx> <eax> <eax>
+[IR line 19] : <movl> <eax> <> <4>
+[IR line 20] : <movl> <4> <> <eax>
+[IR line 21] : <leave> <> <> <>
+[IR line 22] : <ret> <> <> <>
+[IR line 23] : <func> <> <> <mul>
+[IR line 24] : <init> <4> <> <4>
+[IR line 25] : <movl> <eax> <> <4>
+[IR line 26] : <init> <4> <> <8>
+[IR line 27] : <movl> <ebx> <> <8>
+[IR line 28] : <movl> <4> <> <eax>
+[IR line 29] : <movl> <8> <> <ebx>
+[IR line 30] : <call> <add> <> <>
+[IR line 31] : <movl> <eax> <> <4>
+[IR line 32] : <movl> <4> <> <eax>
+[IR line 33] : <movl> <8> <> <ebx>
+[IR line 34] : <imull> <ebx> <> <eax>
+[IR line 35] : <movl> <eax> <> <4>
+[IR line 36] : <movl> <4> <> <eax>
+[IR line 37] : <leave> <> <> <>
+[IR line 38] : <ret> <> <> <>
+[IR line 39] : <func> <> <> <main>
+[IR line 40] : <init> <4> <> <4>
+[IR line 41] : <movl> <$3> <> <eax>
+[IR line 42] : <movl> <eax> <> <4>
+[IR line 43] : <init> <4> <> <8>
+[IR line 44] : <movl> <$7> <> <eax>
+[IR line 45] : <movl> <eax> <> <8>
+[IR line 46] : <movl> <4> <> <eax>
+[IR line 47] : <movl> <8> <> <ebx>
+[IR line 48] : <call> <mul> <> <>
+[IR line 49] : <movl> <eax> <> <4>
+[IR line 50] : <movl> <4> <> <eax>
+[IR line 51] : <call> <putchar> <> <>
+[IR line 52] : <init> <1> <> <9>
+[IR line 53] : <movl> <$97> <> <eax>
+[IR line 54] : <movb> <al> <> <9>
+[IR line 55] : <init> <1> <> <10>
+[IR line 56] : <movl> <$65> <> <eax>
+[IR line 57] : <movb> <al> <> <10>
+[IR line 58] : <movzbl> <10> <> <eax>
+[IR line 59] : <call> <putchar> <> <>
+[IR line 60] : <movzbl> <9> <> <eax>
+[IR line 61] : <call> <putchar> <> <>
+[info] : input id c
+[info] : input ops =
+[info] : input id getchar
+[info] : input ops (
+[info] : input ops )
+[info] : input ops ;
+[info] : total, loaded, ptr : 6 1 0
+[info] : str processing: <id>  <ops =>  
+[info] : stage of dfa : NOT DEFINE
+
+[info] : total, loaded, ptr : 6 2 1
+[info] : str processing: <ops =>  <id>  
+[info] : stage of dfa : INVALID
+
+[info] : total, loaded, ptr : 6 2 0
+[info] : str processing: <id>  <ops =>  <id>  
+[info] : stage of dfa : NOT DEFINE
+
+[info] : total, loaded, ptr : 6 3 2
+[info] : str processing: <id>  <ops (>  
+[info] : stage of dfa : NOT DEFINE
+
+[info] : total, loaded, ptr : 6 3 1
+[info] : str processing: <ops =>  <id>  <ops (>  
+[info] : stage of dfa : INVALID
+
+[info] : total, loaded, ptr : 6 3 0
+[info] : str processing: <id>  <ops =>  <id>  <ops (>  
+[info] : stage of dfa : INVALID
+
+[info] : total, loaded, ptr : 6 4 3
+[info] : str processing: <ops (>  <ops )>  
+[info] : stage of dfa : INVALID
+
+[info] : total, loaded, ptr : 6 4 2
+[info] : str processing: <id>  <ops (>  <ops )>  
+[info] : stage of dfa : NOT DEFINE
+
+[info] : total, loaded, ptr : 6 4 1
+[info] : str processing: <ops =>  <id>  <ops (>  <ops )>  
+[info] : stage of dfa : INVALID
+
+[info] : total, loaded, ptr : 6 4 0
+[info] : str processing: <id>  <ops =>  <id>  <ops (>  <ops )>  
+[info] : stage of dfa : INVALID
+
+[info] : total, loaded, ptr : 6 5 4
+[info] : str processing: <ops )>  <ops ;>  
+[info] : stage of dfa : INVALID
+
+[info] : total, loaded, ptr : 6 5 3
+[info] : str processing: <ops (>  <ops )>  <ops ;>  
+[info] : stage of dfa : INVALID
+
+[info] : total, loaded, ptr : 6 5 2
+[info] : str processing: <id>  <ops (>  <ops )>  <ops ;>  
+[info] : stage of dfa : call_func
+
+[info] : total, loaded, ptr : 3 2 1
+[info] : str processing: <ops =>  <call_func>  
+[info] : stage of dfa : INVALID
+
+[info] : total, loaded, ptr : 3 2 0
+[info] : str processing: <id>  <ops =>  <call_func>  
+[info] : stage of dfa : ass
+
+call_func
+unknow
+getchar
+unknow
+c
+[IR line 0] : <func> <> <> <getchar>
+[IR line 1] : <movzbl> <al> <> <eax>
+[IR line 2] : <call> <gcc_getchar> <> <>
+[IR line 3] : <leave> <> <> <>
+[IR line 4] : <ret> <> <> <>
+[IR line 5] : <func> <> <> <putchar>
+[IR line 6] : <init> <1> <> <1>
+[IR line 7] : <movb> <al> <> <1>
+[IR line 8] : <call> <gcc_putchar> <> <>
+[IR line 9] : <leave> <> <> <>
+[IR line 10] : <ret> <> <> <>
+[IR line 11] : <func> <> <> <add>
+[IR line 12] : <init> <4> <> <4>
+[IR line 13] : <movl> <eax> <> <4>
+[IR line 14] : <init> <4> <> <8>
+[IR line 15] : <movl> <ebx> <> <8>
+[IR line 16] : <movl> <4> <> <eax>
+[IR line 17] : <movl> <8> <> <ebx>
+[IR line 18] : <addl> <ebx> <eax> <eax>
+[IR line 19] : <movl> <eax> <> <4>
+[IR line 20] : <movl> <4> <> <eax>
+[IR line 21] : <leave> <> <> <>
+[IR line 22] : <ret> <> <> <>
+[IR line 23] : <func> <> <> <mul>
+[IR line 24] : <init> <4> <> <4>
+[IR line 25] : <movl> <eax> <> <4>
+[IR line 26] : <init> <4> <> <8>
+[IR line 27] : <movl> <ebx> <> <8>
+[IR line 28] : <movl> <4> <> <eax>
+[IR line 29] : <movl> <8> <> <ebx>
+[IR line 30] : <call> <add> <> <>
+[IR line 31] : <movl> <eax> <> <4>
+[IR line 32] : <movl> <4> <> <eax>
+[IR line 33] : <movl> <8> <> <ebx>
+[IR line 34] : <imull> <ebx> <> <eax>
+[IR line 35] : <movl> <eax> <> <4>
+[IR line 36] : <movl> <4> <> <eax>
+[IR line 37] : <leave> <> <> <>
+[IR line 38] : <ret> <> <> <>
+[IR line 39] : <func> <> <> <main>
+[IR line 40] : <init> <4> <> <4>
+[IR line 41] : <movl> <$3> <> <eax>
+[IR line 42] : <movl> <eax> <> <4>
+[IR line 43] : <init> <4> <> <8>
+[IR line 44] : <movl> <$7> <> <eax>
+[IR line 45] : <movl> <eax> <> <8>
+[IR line 46] : <movl> <4> <> <eax>
+[IR line 47] : <movl> <8> <> <ebx>
+[IR line 48] : <call> <mul> <> <>
+[IR line 49] : <movl> <eax> <> <4>
+[IR line 50] : <movl> <4> <> <eax>
+[IR line 51] : <call> <putchar> <> <>
+[IR line 52] : <init> <1> <> <9>
+[IR line 53] : <movl> <$97> <> <eax>
+[IR line 54] : <movb> <al> <> <9>
+[IR line 55] : <init> <1> <> <10>
+[IR line 56] : <movl> <$65> <> <eax>
+[IR line 57] : <movb> <al> <> <10>
+[IR line 58] : <movzbl> <10> <> <eax>
+[IR line 59] : <call> <putchar> <> <>
+[IR line 60] : <movzbl> <9> <> <eax>
+[IR line 61] : <call> <putchar> <> <>
+[IR line 62] : <call> <getchar> <> <>
+[IR line 63] : <movb> <al> <> <9>
+[info] : input id putchar
+[info] : input ops (
+[info] : input id c
+[info] : input ops )
+[info] : input ops ;
+[info] : total, loaded, ptr : 5 1 0
+[info] : str processing: <id>  <ops (>  
+[info] : stage of dfa : NOT DEFINE
+
+[info] : total, loaded, ptr : 5 2 1
+[info] : str processing: <ops (>  <id>  
+[info] : stage of dfa : INVALID
+
+[info] : total, loaded, ptr : 5 2 0
+[info] : str processing: <id>  <ops (>  <id>  
+[info] : stage of dfa : NOT DEFINE
+
+[info] : total, loaded, ptr : 5 3 2
+[info] : str processing: <id>  <ops )>  
+[info] : stage of dfa : INVALID
+
+[info] : total, loaded, ptr : 5 3 1
+[info] : str processing: <ops (>  <id>  <ops )>  
+[info] : stage of dfa : INVALID
+
+[info] : total, loaded, ptr : 5 3 0
+[info] : str processing: <id>  <ops (>  <id>  <ops )>  
+[info] : stage of dfa : NOT DEFINE
+
+[info] : total, loaded, ptr : 5 4 3
+[info] : str processing: <ops )>  <ops ;>  
+[info] : stage of dfa : INVALID
+
+[info] : total, loaded, ptr : 5 4 2
+[info] : str processing: <id>  <ops )>  <ops ;>  
+[info] : stage of dfa : INVALID
+
+[info] : total, loaded, ptr : 5 4 1
+[info] : str processing: <ops (>  <id>  <ops )>  <ops ;>  
+[info] : stage of dfa : INVALID
+
+[info] : total, loaded, ptr : 5 4 0
+[info] : str processing: <id>  <ops (>  <id>  <ops )>  <ops ;>  
+[info] : stage of dfa : call_func
+
+unknow
+putchar
+unknow
+c
+[IR line 0] : <func> <> <> <getchar>
+[IR line 1] : <movzbl> <al> <> <eax>
+[IR line 2] : <call> <gcc_getchar> <> <>
+[IR line 3] : <leave> <> <> <>
+[IR line 4] : <ret> <> <> <>
+[IR line 5] : <func> <> <> <putchar>
+[IR line 6] : <init> <1> <> <1>
+[IR line 7] : <movb> <al> <> <1>
+[IR line 8] : <call> <gcc_putchar> <> <>
+[IR line 9] : <leave> <> <> <>
+[IR line 10] : <ret> <> <> <>
+[IR line 11] : <func> <> <> <add>
+[IR line 12] : <init> <4> <> <4>
+[IR line 13] : <movl> <eax> <> <4>
+[IR line 14] : <init> <4> <> <8>
+[IR line 15] : <movl> <ebx> <> <8>
+[IR line 16] : <movl> <4> <> <eax>
+[IR line 17] : <movl> <8> <> <ebx>
+[IR line 18] : <addl> <ebx> <eax> <eax>
+[IR line 19] : <movl> <eax> <> <4>
+[IR line 20] : <movl> <4> <> <eax>
+[IR line 21] : <leave> <> <> <>
+[IR line 22] : <ret> <> <> <>
+[IR line 23] : <func> <> <> <mul>
+[IR line 24] : <init> <4> <> <4>
+[IR line 25] : <movl> <eax> <> <4>
+[IR line 26] : <init> <4> <> <8>
+[IR line 27] : <movl> <ebx> <> <8>
+[IR line 28] : <movl> <4> <> <eax>
+[IR line 29] : <movl> <8> <> <ebx>
+[IR line 30] : <call> <add> <> <>
+[IR line 31] : <movl> <eax> <> <4>
+[IR line 32] : <movl> <4> <> <eax>
+[IR line 33] : <movl> <8> <> <ebx>
+[IR line 34] : <imull> <ebx> <> <eax>
+[IR line 35] : <movl> <eax> <> <4>
+[IR line 36] : <movl> <4> <> <eax>
+[IR line 37] : <leave> <> <> <>
+[IR line 38] : <ret> <> <> <>
+[IR line 39] : <func> <> <> <main>
+[IR line 40] : <init> <4> <> <4>
+[IR line 41] : <movl> <$3> <> <eax>
+[IR line 42] : <movl> <eax> <> <4>
+[IR line 43] : <init> <4> <> <8>
+[IR line 44] : <movl> <$7> <> <eax>
+[IR line 45] : <movl> <eax> <> <8>
+[IR line 46] : <movl> <4> <> <eax>
+[IR line 47] : <movl> <8> <> <ebx>
+[IR line 48] : <call> <mul> <> <>
+[IR line 49] : <movl> <eax> <> <4>
+[IR line 50] : <movl> <4> <> <eax>
+[IR line 51] : <call> <putchar> <> <>
+[IR line 52] : <init> <1> <> <9>
+[IR line 53] : <movl> <$97> <> <eax>
+[IR line 54] : <movb> <al> <> <9>
+[IR line 55] : <init> <1> <> <10>
+[IR line 56] : <movl> <$65> <> <eax>
+[IR line 57] : <movb> <al> <> <10>
+[IR line 58] : <movzbl> <10> <> <eax>
+[IR line 59] : <call> <putchar> <> <>
+[IR line 60] : <movzbl> <9> <> <eax>
+[IR line 61] : <call> <putchar> <> <>
+[IR line 62] : <call> <getchar> <> <>
+[IR line 63] : <movb> <al> <> <9>
+[IR line 64] : <movzbl> <9> <> <eax>
+[IR line 65] : <call> <putchar> <> <>
+[info] : input cmd return
+[info] : input num 0
+[info] : input ops ;
+[info] : total, loaded, ptr : 3 1 0
+[info] : str processing: <cmd return>  <num>  
+[info] : stage of dfa : NOT DEFINE
+
+[info] : total, loaded, ptr : 3 2 1
+[info] : str processing: <num>  <ops ;>  
+[info] : stage of dfa : INVALID
+
+[info] : total, loaded, ptr : 3 2 0
+[info] : str processing: <cmd return>  <num>  <ops ;>  
+[info] : stage of dfa : ret
+
+num
+0
+[IR line 0] : <func> <> <> <getchar>
+[IR line 1] : <movzbl> <al> <> <eax>
+[IR line 2] : <call> <gcc_getchar> <> <>
+[IR line 3] : <leave> <> <> <>
+[IR line 4] : <ret> <> <> <>
+[IR line 5] : <func> <> <> <putchar>
+[IR line 6] : <init> <1> <> <1>
+[IR line 7] : <movb> <al> <> <1>
+[IR line 8] : <call> <gcc_putchar> <> <>
+[IR line 9] : <leave> <> <> <>
+[IR line 10] : <ret> <> <> <>
+[IR line 11] : <func> <> <> <add>
+[IR line 12] : <init> <4> <> <4>
+[IR line 13] : <movl> <eax> <> <4>
+[IR line 14] : <init> <4> <> <8>
+[IR line 15] : <movl> <ebx> <> <8>
+[IR line 16] : <movl> <4> <> <eax>
+[IR line 17] : <movl> <8> <> <ebx>
+[IR line 18] : <addl> <ebx> <eax> <eax>
+[IR line 19] : <movl> <eax> <> <4>
+[IR line 20] : <movl> <4> <> <eax>
+[IR line 21] : <leave> <> <> <>
+[IR line 22] : <ret> <> <> <>
+[IR line 23] : <func> <> <> <mul>
+[IR line 24] : <init> <4> <> <4>
+[IR line 25] : <movl> <eax> <> <4>
+[IR line 26] : <init> <4> <> <8>
+[IR line 27] : <movl> <ebx> <> <8>
+[IR line 28] : <movl> <4> <> <eax>
+[IR line 29] : <movl> <8> <> <ebx>
+[IR line 30] : <call> <add> <> <>
+[IR line 31] : <movl> <eax> <> <4>
+[IR line 32] : <movl> <4> <> <eax>
+[IR line 33] : <movl> <8> <> <ebx>
+[IR line 34] : <imull> <ebx> <> <eax>
+[IR line 35] : <movl> <eax> <> <4>
+[IR line 36] : <movl> <4> <> <eax>
+[IR line 37] : <leave> <> <> <>
+[IR line 38] : <ret> <> <> <>
+[IR line 39] : <func> <> <> <main>
+[IR line 40] : <init> <4> <> <4>
+[IR line 41] : <movl> <$3> <> <eax>
+[IR line 42] : <movl> <eax> <> <4>
+[IR line 43] : <init> <4> <> <8>
+[IR line 44] : <movl> <$7> <> <eax>
+[IR line 45] : <movl> <eax> <> <8>
+[IR line 46] : <movl> <4> <> <eax>
+[IR line 47] : <movl> <8> <> <ebx>
+[IR line 48] : <call> <mul> <> <>
+[IR line 49] : <movl> <eax> <> <4>
+[IR line 50] : <movl> <4> <> <eax>
+[IR line 51] : <call> <putchar> <> <>
+[IR line 52] : <init> <1> <> <9>
+[IR line 53] : <movl> <$97> <> <eax>
+[IR line 54] : <movb> <al> <> <9>
+[IR line 55] : <init> <1> <> <10>
+[IR line 56] : <movl> <$65> <> <eax>
+[IR line 57] : <movb> <al> <> <10>
+[IR line 58] : <movzbl> <10> <> <eax>
+[IR line 59] : <call> <putchar> <> <>
+[IR line 60] : <movzbl> <9> <> <eax>
+[IR line 61] : <call> <putchar> <> <>
+[IR line 62] : <call> <getchar> <> <>
+[IR line 63] : <movb> <al> <> <9>
+[IR line 64] : <movzbl> <9> <> <eax>
+[IR line 65] : <call> <putchar> <> <>
+[IR line 66] : <movl> <$0> <> <eax>
+[info] : input ops }
